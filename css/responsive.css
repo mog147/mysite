@@ -1,0 +1,350 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+
+
+/* ------------------------ */
+/* header */
+
+/* pc */
+@media (min-width:768px) {
+    header .container {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      max-width: 1000px;
+      max-width: var(--large-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .headB {
+      display: block !important;
+    }
+
+    .headB ul {
+      display: flex;
+    }
+  
+    .headC {
+      display: none;
+    }
+
+}
+
+/* phone */
+@media (max-width :767px) {
+    header .container-small {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .headB ul {
+      margin-top: 0;
+      padding-bottom: 1rem;
+
+    }
+
+    .headB li {
+      padding: 0;
+    }
+
+    .headB a {
+      font-size: 1rem;
+      margin-top: -1rem;
+    } 
+  
+    .headC {
+      margin-top: 0.3rem;  
+      margin-right: 3rem;
+      padding: 0;
+      border: 0;
+      outline:0;
+      background: none;
+      font-size: 28px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  
+    .headC:hover {
+      opacity: 0.3;
+    }
+  
+    .headB {
+      display: none;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-left: 0;
+      margin-bottom: 5rem;
+      width: 300px;
+    }
+  
+  
+  
+    .skill img{
+      margin-right: 1rem;
+      list-style: none;
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+}
+
+/* ------------------------ */
+/* 共通 */
+
+/* phone */
+@media (max-width: 500px) {
+    
+  .text br {
+    display: none;
+  }
+
+}
+
+@media (max-width:767px) {
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+  }
+
+}
+
+/* pc */
+@media (min-width:768px) {
+  
+  .title {
+    text-align: center;
+    font-size: 30px;
+  }
+
+}
+
+ /* font設定 */
+ @media (max-width:599px) {
+  h2 {
+      font-size: 18px;
+  }
+
+  p {
+      font-size: 14px;
+  }
+}
+
+@media (min-width:600px) and (max-width:799px) {
+  h2 {
+      font-size: 20px;
+  }
+
+  p {
+      font-size: 16px;
+  }
+}
+
+@media (min-width:600px) and (max-width:799px) {
+  h2 {
+      font-size: 24px;
+  }
+
+  p {
+      font-size: 18px;
+  }
+}
+
+/* ------------------------ */
+/* footer */
+
+/* スマホのときだけ折り返す */
+@media (max-width: 500px) {
+  .footer {
+    overflow-wrap:anywhere;
+  }
+} 
+
+@media (min-width:768px) {
+    .footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      max-width: var(--large-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footB {
+        display: flex;
+      }
+    
+    .footB div {
+        flex: 1;
+    }
+
+    .footB div:not(:first-child){
+        margin-left: 40px;
+    }
+
+
+    .footA {
+        flex: 0 0 40%;
+    }
+    
+    .footB {
+        flex: 0 0 60%;
+    }
+    
+    .footC {
+        flex: 0 0 100%;
+    }
+}
+
+
+/* pc */
+@media (min-width:768px) {
+
+  .footer_fixed {
+    position: fixed;
+  }
+  
+}
+/* ------------------------ */
+/* btn */
+
+/******* メディアクエリ での制御 *******/
+/* :hoverが使える端末を想定 */
+@media (hover: hover) {
+
+    .headB a:hover{
+      background-color: rgba(242, 242, 242, 0.3);
+    }
+
+    .listC a:hover{
+      opacity: 0.8;
+     }  
+      
+    .btnA a {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top:5rem; /*ボタンのmarginを調整*/
+
+        max-width: 270px;
+        width: 100%;
+        
+        padding: 10px 0px 10px 25px;
+        letter-spacing: 0.2rem;
+        line-height: 1.8;
+        color: var(--light-main-color);
+        transition: 0.3s ease-in-out;
+        font-size: 16px;
+        height: 4rem;
+    }
+    
+    .btnA a span {
+      position: relative;
+      transition: all 0.3s;
+      z-index: 3;
+    }
+
+    .btnA a:before, .btnA a:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+      }
+
+      .btnA a:before {
+        width: 0.5rem;
+        height: 0.5rem;
+        left: 1.1rem;
+        border-top: solid 2px #fff;
+        border-right: solid 2px #fff;
+        z-index: 2;
+        transform: translateY(-50%) rotate(45deg);
+        transition: all 0.3s;
+      }
+
+      .btnA a:after {
+        left: 0;
+        background:#f2af05;
+        z-index: 1;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 4rem;
+        transform: translateY(-50%);
+        transition: all 0.5s;
+      }
+
+      .btnA a:hover span {
+        color: var(--light-main-color)
+      }
+
+      .btnA a:hover:before {
+        left: 2.5rem;
+        border-top: solid 2px #fff;
+        border-right: solid 2px #fff;
+      }
+
+      .btnA a:hover:after {
+        right: 0;
+        width: 100%;
+        background: #f2af05;
+        background: var(--accent-color);
+      }
+      
+
+  }
+
+  /* :hoverが使えない端末を想定 */
+  @media (hover: none) {
+
+  .headB a{
+      background-color:none;
+    }
+
+
+  .btnA a {
+    display: inline-block;
+    letter-spacing: 0.2rem;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--light-main-color);
+    background: var(--accent-color);
+    
+    padding: 5px 8px;
+    z-index: 1;
+    height: 4rem;
+    border-radius: 4rem;
+
+    max-width: 270px;
+    width: 100%;
+    display: block;
+    margin:3rem auto 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    }
+
+       
+
+  }
+  

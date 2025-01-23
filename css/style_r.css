@@ -1,0 +1,101 @@
+/* phone */
+@media (max-width: 599px) {
+  section{
+    margin: 0;
+    }
+
+    [class$="__text"],
+    [class*="__text "]{
+     text-align: center;
+     margin:0 3rem;
+    }
+
+    .conA{
+      width: 100%;
+    }
+
+    .conA__text{
+      top: 50%;
+    height: 9%;
+    margin: 0;
+    width: 100%;
+    }
+
+    .conA__title{
+      font-size: 60px;
+      line-height: 1;
+    }
+
+    .conA__subtitle{
+      position: absolute;
+      top:265%;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+
+    .conA__title,
+    .conA__subtitle{
+      width: 100%;
+    }
+
+    .conB br {
+      display: none;
+    }
+
+    .conB__icon,
+    .conB__title,
+    .conB__subtitle{
+      margin: 0;
+    }
+
+    .conB__subtitle{
+      margin-top: -1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .sns{
+
+      margin-bottom: 3rem;
+    }
+
+    .conC, .conC__box {
+      height: 900px;
+    } 
+
+    .conC__box{
+      display: block;
+    }
+
+    [class^="photo"], [class*=" photo"] {
+      min-height: 300px;
+      width: 100%;
+      margin: 3rem 0;
+      background-position:center center;
+  }
+
+  #top-info th,
+  #top-info td {
+    display: block;
+    width: 100%;
+    border-bottom:none;
+    margin: 0 auto;
+  }
+
+}
+
+/* PC */
+@media (min-width:768px) {
+
+    .conA p br {
+      display: none;
+    }
+
+}
+  
+
+
+
+
+
+
+    

@@ -1,0 +1,536 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, 
+    ".SFNSDisplay-Regular", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    Helvetica, "游ゴシック Medium", meiryo, sans-serif;
+    letter-spacing: 0.1rem;
+    background-color: var(--dark-main-color);
+    color: var(--light-main-color);
+    overflow-x: hidden;
+}
+
+section{
+  margin: 5rem 0;
+}
+
+h1,h2{
+  letter-spacing: 0.2rem;
+  line-height: 3;
+}
+
+p{
+  letter-spacing: 0.1rem;
+  line-height: 3;
+}
+
+li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* リンクをちょうどいい位置に飛ばす */
+a.anchor {
+    display: block;
+    padding-top: 150px;
+    margin-top: -150px;
+}
+
+/* ロード時にページ全体をフェードイン */
+body {
+animation: fade 3s;
+}
+
+@keyframes fade {
+    0% {opacity: 0;
+    }
+    100% {opacity: 1;
+    }
+}
+
+
+   
+
+/* 要素フェードイン */
+/* クラス名に「.scroll_fadein」追加でOK */
+
+.scroll_fadein{
+    opacity: 0;
+  }
+
+  .fadein_animation_start{
+    /* キーフレームアニメーションを指定 */
+    animation-name: fadein_animation;
+    /* // アニメーションの開始時間の遅延 */
+    animation-delay: 0.2s;
+    /* // アニメーションの時間を指定 */
+    animation-duration: 1s;
+    /* //アニメーション再生後のスタイルを指定 */
+    animation-fill-mode: both;
+  }
+  @keyframes fadein_animation{
+    0% {
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  .slideup{
+    transform: translateY(50px);
+  }
+  .slidedown{
+    transform: translateY(-50px);
+  }
+  .slideright{
+    transform: translateX(50px);
+  }
+  .slideleft{
+    transform: translateX(-50px);
+  }
+   
+/*-----ここからheader-----*/
+
+header {
+    top: 0;
+    left: 0;
+    z-index: 100;     /*← 一番上のレイヤーにする */
+    width: 100%;
+    position: absolute;
+    background-color: var(--dark-main-color);
+}
+
+.nohero header {
+    position: static;  
+    margin-bottom: 3rem;
+}
+
+/* こっちが上 */
+.nohero .head-fixed + * {
+    margin-top: 150px;
+}
+
+/* こっちが下 */
+.head-fixed,
+.nohero .head-fixed {
+    position: fixed;
+}
+
+
+/*.headA {
+    display: inline-block;
+    line-height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #B4CBD9;
+    background-color:var(--main-color) ;
+    color: #f2f2f2;
+    color: var(--text-bright-color);
+    font-family:'Montserrat',sans-serif; 
+    font-size: 24px;
+    text-decoration: none;
+    letter-spacing: 0.1rem; 
+}*/
+
+.headB ul{
+margin-right:  2rem;
+padding: 0;
+list-style: none;
+
+/* menu右寄せ */
+text-align: right;
+}
+
+.headB a {
+    display: block;
+    padding: 15px;
+    color: var(--light-main-color);
+    font-size: 20px;
+    text-decoration:none;
+    letter-spacing: 0.3rem;
+}
+  
+/*-----ここまでheader-----*/
+
+ /* title */
+
+ .title {
+    font-weight:normal;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--light-main-color);
+  }
+
+.sub_title {
+    font-weight:normal;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--main-color);
+
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+
+    margin-bottom: 3rem;
+    text-decoration: none;
+    
+}
+
+.jp{
+    margin-bottom: 3rem;
+}
+
+
+/*-----ここからfoooter-----*/
+
+
+.footer {
+    
+    width: 100%;
+    height: auto;
+    bottom:0;
+
+
+    background-color: var(--dark-main-color);
+    color: var(--light-main-color);
+
+    margin-top: auto;
+}
+
+.footer .container {
+    padding: 2rem 2rem;
+    text-align: left; 
+    margin-top: 3rem; 
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* footA */
+.footA {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.footA h2{
+    margin-top:0 ;
+    margin-bottom: 1rem;
+    font-family:'Montserrat',sans-serif;  
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.footA p {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 2rem;
+    letter-spacing: 0.2rem;
+    color: var(--light-main-color);
+}
+
+.footA a {
+    color: inherit;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
+}
+
+/* footB */
+
+.footB div {
+    margin-bottom: 2rem;
+}
+
+.footB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footB a {
+    display: block;
+    padding: 5px;
+    color: inherit;
+    text-decoration: none;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.footB a:hover{
+    background-color: rgba(51,51,51,0.1);
+}
+
+/* footC */
+
+.footC {
+    border-top: solid 1px currentColor;
+    padding-top: 3rem;
+    text-align: center;
+    font-family:'Montserrat',sans-serif;  
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+}
+
+/* footD */
+
+.footD {
+    margin-top: 2rem;
+}
+
+.footD ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footD a {
+    display: block;
+    margin-right: 1.5rem;
+    color :#B4CBD9;
+    color: var(--main-color);
+    font-size: 42px;
+    text-decoration: none;
+}
+
+.footD a:hover{
+    background-color:rgba(51,51,51,0.1) ;
+}
+
+/*-----ここまでfoooter-----*/
+
+  
+/* pege topにとぶ */
+
+
+#page_top{
+
+    width: 90px;
+    height: 90px;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0.6;
+  }
+  #page_top a{
+    position: relative;
+    display: block;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+  }
+  #page_top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+    font-size: 25px;
+    color: var(--gray-main-color);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -40px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+  #page_top a::after{
+    content: 'PAGE TOP';
+    font-size: 13px;
+    color: var(--gray-main-color);
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    color: #B4CBD9;
+    color: var(--gray-main-color);
+  }  
+
+ /*========= ナビゲーションドロップダウンのためのCSS ===============*/
+
+
+/*下の階層のulや矢印の基点にするためliにrelativeを指定*/
+nav ul li{
+	position: relative;
+}
+
+/*ナビゲーションのリンク設定*/
+nav ul li a{
+	display: block;
+	text-decoration: none;
+	transition:all .3s;
+}
+
+nav ul li li a{
+	padding:10px 35px;
+}
+
+/*==矢印の設定*/
+
+/*2階層目を持つliの矢印の設定*/
+nav ul li.has-child::before{
+	content:'';
+	position: absolute;
+  opacity: 0;
+}
+
+/*== 2・3階層目の共通設定 */
+
+/*下の階層を持っているulの指定*/
+nav li.has-child ul{
+    /*絶対配置で位置を指定*/
+	position: absolute;
+	left:0;
+	top:62px;
+	z-index: 4;
+    /*形状を指定*/
+	background:none;
+	width:180px;
+    /*はじめは非表示*/
+	visibility: hidden;
+	opacity: 0;
+    /*アニメーション設定*/
+	transition: all .3s;
+}
+
+/*hoverしたら表示*/
+nav li.has-child:hover > ul,
+nav li.has-child ul li:hover > ul,
+nav li.has-child:active > ul,
+nav li.has-child ul li:active > ul{
+  visibility: visible;
+  opacity: 1;
+}
+
+/*ナビゲーションaタグの形状*/
+
+nav li.has-child ul li a{
+	color: var(--light-main-color);  
+}
+
+nav li.has-child ul li a:hover,
+nav li.has-child ul li a:active{
+  margin-top: 1rem;
+  background: rgba(242, 242, 242, 0.7);
+}
+
+/*==768px以下の形状*/
+
+@media (max-width:767px){
+	
+	nav ul{
+		display: block;
+	}
+	
+	nav li.has-child ul,
+	nav li.has-child ul ul{
+  position: relative;
+	left:0;
+	top:0;
+	width:100%;
+	visibility:visible;/*JSで制御するため一旦表示*/
+	opacity:1;/*JSで制御するため一旦表示*/
+	display: none;/*JSのslidetoggleで表示させるため非表示に*/
+	transition:none;/*JSで制御するためCSSのアニメーションを切る*/
+}
+	
+
+
+/*矢印の位置と向き*/
+
+nav ul li.has-child::before{
+	opacity:0;	
+}
+
+nav li.has-child ul{
+  background: var(--dark-main-color);
+}
+
+nav li.has-child ul li a{
+	color: rgba(242, 242, 242, 0.7);
+}
+
+
+}
+
+/*==768px以上の形状*/
+
+@media (min-width:768px){
+
+/*2階層目以降は横並びにしない*/
+nav ul ul{
+	display: block!important;
+}
+
+nav li.has-child ul{
+  margin-top: 0.4rem;
+}
+
+nav li.has-child ul li{
+  text-align: left;
+}
+
+nav li.has-child ul{
+  /*絶対配置で位置を指定*/
+width:100%;
+}
+
+nav li.has-child ul li a{
+	width: 200px;
+  background: var(--gray-main-color);
+}
+
+}
+
+/*独自のマウスカーソルを作成*/
+@media (hover: hover) {
+  
+.cursor {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+  transform: translate(0, 0);
+  pointer-events: none;
+}
+
+/*aタグにホバーした時に見た目変化*/
+
+
+  .cursor.cursor--hover {
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(242, 175, 2, 0.5);
+  }
+}

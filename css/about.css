@@ -1,0 +1,148 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+  .me {
+    border-bottom: solid 1px #f2af05;
+    border-bottom: solid 1px var(--accent-color);
+  }
+
+  .small_text{
+    font-size: 0.8rem;
+  }
+
+  .post .container {
+    max-width: 800px;
+    max-width: var(--midddle-width);
+    padding: 10px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+  }
+
+  .post h2 {
+    margin-top: 3rem;
+    margin-bottom: 20px;
+    
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 0.5rem;
+    line-height: 0;
+  }
+
+  .post p {
+    font: 16px;
+    line-height: 0z;
+    margin-bottom: 1rem;
+  }
+
+  .post img {
+    max-width: 100%;
+  }
+
+  .text {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    max-width: 100%;
+  
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 5rem;
+    width: 750px;
+  }
+
+
+
+  .skill img{
+    margin-right: 1rem;
+    list-style: none;
+    width: 40px;
+  }
+
+  .skill p {
+    letter-spacing: 0.2rem;
+  }
+
+  .history {
+    color: var(--light-main-color);
+  }
+
+
+  .history h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .history table {
+    border-collapse: collapse; /* テーブルの線を取っ払う */
+    font-size: 0.875rem;
+  }
+
+
+
+  .history th,
+  .history td {
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
+    vertical-align: baseline;
+  }
+
+  .history th {
+    padding-right: 1rem;
+    text-align: left;
+    word-break: keep-all;
+  }
+
+/* 要素フェードイン */
+
+  .scroll_fadein{
+    opacity: 0;
+  }
+
+  .fadein_animation_start{
+    /* キーフレームアニメーションを指定 */
+    animation-name: fadein_animation;
+    /* // アニメーションの開始時間の遅延 */
+    animation-delay: 0.2s;
+    /* // アニメーションの時間を指定 */
+    animation-duration: 1s;
+    /* //アニメーション再生後のスタイルを指定 */
+    animation-fill-mode: both;
+  }
+  @keyframes fadein_animation{
+    0% {
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  .slideup{
+    transform: translateY(50px);
+  }
+  .slidedown{
+    transform: translateY(-50px);
+  }
+  .slideright{
+    transform: translateX(50px);
+  }
+  .slideleft{
+    transform: translateX(-50px);
+  }

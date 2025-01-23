@@ -1,0 +1,107 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+
+/* conC */
+
+.conC {
+  color: var(--light-main-color);
+}
+
+.conC .container {
+  padding-bottom: 3rem;
+}
+
+.conC .text {
+  padding: 3rem;
+}
+
+.conC h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #B4CBD9;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
+.conC p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.conC .photo {
+  min-height: 200px;
+  background-image: url(../img/watercolor.png);
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+.conC .photo2 {
+  min-height: 200px;
+  background-image: url(../img/digitalart.png);
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+/* conD */
+
+.conD .container {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.conD .text {
+  padding: 3rem;
+}
+
+.conD h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #B4CBD9;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
+.conD p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.conD a:hover{
+  background-image: linear-gradient(
+    rgba(242,242,242,0.2)
+    rgba(242,242,242,0.2)
+  );
+}
+
+.conD .photo {
+  min-height: 200px;
+  background-image: url(../img/pencil.png);
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+

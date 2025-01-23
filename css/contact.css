@@ -1,0 +1,132 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+
+a.anchor {
+  padding-top: 0;
+}
+
+.conE {
+  padding-top:5rem;
+  padding-bottom: 5rem;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.conE .container {
+  max-width:500px;
+  max-width: var(--small-width);
+  margin:0 auto;
+  border-radius:6px;
+  background-color:#f2f2f2;
+}
+
+.conE .frm{
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+  padding-right: 2rem;
+}
+
+.conE .msg{
+  height:10rem;
+  resize: vertical;
+  max-width: 992px;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, 
+    ".SFNSDisplay-Regular", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    Helvetica, "游ゴシック Medium", meiryo, sans-serif;
+}
+
+.conE p {
+  font-size: 1rem;
+  color: #B4CBD9;
+  color: var(--main-color);
+  margin-left: 2rem;
+}
+
+.conE .text {
+  text-align: left;
+}
+
+.en {
+  letter-spacing: 0.14rem;
+}
+
+input, textarea {
+  outline:none;
+
+  color: #333;
+  color: var(--dark-main-color);
+
+  padding: 1rem;
+  margin-bottom:3rem;
+
+  border: none;
+  background: #fff;
+
+  border-radius: 5px;
+
+  width: 100%;
+  max-width: 600px;
+  max-width: var(--main-color);
+
+
+  letter-spacing: 0.3rem;
+  font-size: clamp(16px, 1vw, 24px);
+}
+
+.btn{
+  color: #fff;
+  color: var(--icon-color);
+  background-color: #f2af05;
+  background-color: var(--accent-color);
+
+  font-size: clamp(16px, 1vw, 24px);
+  letter-spacing: 0.3rem;
+
+  border-radius:4rem;
+
+  margin-top:15px;
+  margin-bottom:25px;
+  padding: 30px;
+  margin-left: 2rem;
+  
+  width: 50%;
+  max-width: 300px;
+
+  border: none;
+  transition: .5s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input:first-of-type{
+  margin-top:35px;
+}
+
+.send[disabled] {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+::placeholder {
+  color: #f2af05;
+  color: var(--accent-color);
+}
+
+label{
+  margin-right: auto;
+  }

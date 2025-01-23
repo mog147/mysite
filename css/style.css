@@ -1,0 +1,368 @@
+/* 基本色 */
+:root {
+  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
+  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
+  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
+  --gray-main-color : #ddd;
+  --light-main-color : #fff;
+  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+
+  --large-width:1000px;
+  --midddle-width:800px;
+  --small-width:600px;
+}
+
+/* ----------------------------------------- */
+/* conA */
+
+.conA__text{
+  position: absolute;
+  top: 30%;
+  left: 0;
+  padding: 0 5rem;
+}
+
+.conA {
+  position: relative;
+  height: 100vh;
+  min-height: 450px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+
+.conA__title,
+.conA__subtitle{
+  margin-top: 0;
+  color: var(--light-main-color);
+  width: 100vw;
+}
+
+.conA__title {
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat',sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  font-size: 200px;
+  left:0;  
+}
+
+.conA__subtitle{
+  font-size: 27px;
+  letter-spacing: 0.23em;
+  top:400%;
+  left: 0;
+}
+
+.conA__image{
+  position: absolute;
+  top:20%;
+  width: 30%;
+  padding: 0 5rem;
+}
+
+/* video */
+.video{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-main-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.parallax_bg{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.video video{
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* ----------------------------------------- */
+/* conB */
+
+.conB .container {
+  display: flex;
+  max-width: var(--small-width);
+  margin:1rem auto;
+}
+
+.conB__text{
+  text-align: center;
+  flex: 1;
+}
+
+.conB__title{
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.conB__subtitle{
+  margin-right: 0.5rem;
+}
+
+.conB__subtitle,.jp,.en{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  overflow-wrap: anywhere;
+}
+
+.conB__icon {
+  display: inline-block;
+  margin:0 1rem 0 0;
+  width: 30%;
+}
+
+.more_btn {
+  color: var(--main-color);
+  /* aタグにmarginは効かないから一度ブロックにする必要あり  */
+  display: block;
+  margin: 3rem;
+}
+
+.more_btn a:hover {
+  text-decoration: underline;
+}
+
+.sns__list{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sns__item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.sns__item a {
+    font-size: 42px;
+    text-decoration: none;
+    color :#B4CBD9;
+    color: var(--main-color);
+}
+
+.sns__item a:hover{
+    background-color:rgba(51,51,51,0.1) ;
+}
+
+/* ----------------------------------------- */
+/* conC */
+
+.conC,
+.conC__box{
+  height: 500px;
+}
+
+.conC__box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+}
+
+.boxB{
+  flex-direction: row-reverse; /*左右入れ替え*/
+}
+
+
+.conC:nth-child(odd){
+  background-color: var(--gray-main-color);
+  color: var(--dark-main-color);
+  flex-direction: row;
+}
+
+.conC:nth-child(even){
+  background-color: var(--dark-main-color);
+  color: var(--light-main-color); 
+  flex-direction: row-reverse;
+}
+
+.conC__title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #B4CBD9;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
+.conC p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+
+
+[class^="photo"],
+[class*=" photo"]{
+  min-height: 500px;
+  width: 33%;
+	background-position: right;
+  background-size:contain;
+  background-repeat: no-repeat;
+  margin:0 3rem;
+}
+
+.photoA {
+  background-image: url(../img/con1.png);
+}
+
+.photoB {
+  background-image: url(../img/con2.png);
+}
+
+.photoC {
+  background-image: url(../img/con3.png);
+}
+
+.photoD {
+  background-image: url(../img/con4.png);
+}
+
+/* ----------------------------------------- */
+/* news */
+
+.news {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10rem;
+  
+}
+
+.news .text{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-size: 0.875rem; 
+}
+
+.news .more_btn{
+  font-size: 1rem !important;
+}
+
+.news a {
+  color: #B4CBD9;
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-size: 0.875rem;
+}
+
+.news a:hover {
+  text-decoration: underline;
+}
+
+#top-info {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.news th,
+.news td {
+  padding-top: 0.8rem;
+  padding-bottom: 1rem;
+  vertical-align: baseline;
+  letter-spacing: 0.3rem;
+}
+
+.news th {
+  padding-right: 1rem;
+  text-align: left;
+  word-break: keep-all;
+}
+
+.news td {
+  padding-right: 1rem;
+  text-align: left;
+}
+
+
+.news .btn {
+  display: block;
+  color: #f2af05;
+  text-decoration:none;
+  letter-spacing: 0.3rem;
+  word-break: keep-all;
+}
+
+.news a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/*========= LoadingのためのCSS ===============*/
+
+/* Loading背景画面設定 */
+#splash {
+  /*fixedで全面に固定*/
+position: fixed;
+width: 100%;
+height: 100%;
+z-index: 999;
+text-align:center;
+color:#fff;
+}
+
+/* Loading画像中央配置 */
+#splash_text {
+position: absolute;
+top: 50%;
+left: 50%;
+  z-index: 999;
+transform: translate(-50%, -50%);
+color: #fff;
+width: 100%;
+}
+
+
+/*割れる画面のアニメーション*/
+.loader_cover {
+  width: 100%;
+  height: 50%;
+  background-color: #333;
+  transition: all .2s cubic-bezier(.04, .435, .315, .9);
+  transform: scaleY(1);
+}
+/*上の画面*/
+.loader_cover-up {
+  transform-origin: center top;
+}
+
+/*下の画面*/
+.loader_cover-down {
+  position: absolute;
+  bottom: 0;
+  transform-origin: center bottom;
+}
+/*クラス名がついたらY軸方向に0*/
+.coveranime {
+  transform: scaleY(0);
+}
+
