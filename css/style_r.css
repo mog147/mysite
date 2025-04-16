@@ -15,6 +15,11 @@
     width: 100%;
   }
 
+  .news th,
+  .news td{
+    text-align: center;
+  }
+
   section{
     margin: 0;
     }
