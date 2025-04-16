@@ -300,7 +300,7 @@ text-align: right;
 }
 
 .footD a:hover{
-    background-color:var(--dark-transparent-color3) ;
+    background-color:none ;
 }
 
 /*-----ここまでfoooter-----*/
