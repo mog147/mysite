@@ -1,6 +1,20 @@
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+.pc { display: block !important; }
+.sp { display: none !important; }
+ 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 750px) {
+  .pc { display: none !important; }
+  .sp { display: block !important; }
+}
 
 /* phone */
 @media (max-width: 599px) {
+
+  .sp{
+    width: 100%;
+  }
+
   section{
     margin: 0;
     }
@@ -29,7 +43,7 @@
 
     .conA__subtitle{
       position: absolute;
-      top:265%;
+      top:0;
       font-size: 14px;
       letter-spacing: 0.1em;
     }
