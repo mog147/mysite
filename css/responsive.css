@@ -1,17 +1,20 @@
 /* 基本色 */
 :root {
-  --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
-  --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
-  --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
-  --gray-main-color : #ddd;
+  --main-color :#FF0DC1 ;
+  --accent-color : #43D9D8 ;
+  --accent-transparent-color:rgba(255, 13, 193, 0.5);
+  --dark-main-color : #333; 
+  --dark-transparent-color7: rgba(242, 242, 242, 0.7);
+  --dark-transparent-color3: rgba(242, 242, 242, 0.3);
+  --dark-transparent-color1: rgba(242, 242, 242, 0.1);
   --light-main-color : #fff;
-  --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
+  --gray-main-color:#ddd  ;
+  --text-bright-color : #f2f2f2;
 
   --large-width:1000px;
   --midddle-width:800px;
   --small-width:600px;
 }
-
 
 /* ------------------------ */
 /* header */
@@ -282,7 +285,7 @@
 
       .btnA a:after {
         left: 0;
-        background:#f2af05;
+        background:var(--main-color);
         z-index: 1;
         width: 3rem;
         height: 3rem;
@@ -297,15 +300,14 @@
 
       .btnA a:hover:before {
         left: 2.5rem;
-        border-top: solid 2px #fff;
-        border-right: solid 2px #fff;
+        border-top: solid 2px var(--light-main-color);
+        border-right: solid 2px var(--light-main-color);
       }
 
       .btnA a:hover:after {
         right: 0;
         width: 100%;
-        background: #f2af05;
-        background: var(--accent-color);
+        background: var(--main-color);
       }
       
 

@@ -1,16 +1,4 @@
-/* 基本色 */
-:root {
-   --main-color : #B4CBD9;/*rgba(180, 203, 217, 0)*/
-   --accent-color : #f2af05 ;/*rgba(242, 175, 2, 0)*/
-   --dark-main-color : #333; /*rgba(51, 51, 51, 0)*/
-   --gray-main-color : #ddd;
-   --light-main-color : #fff;
-   --text-bright-color : #f2f2f2; /*rgba(242, 242, 242, 0)*/
  
-   --large-width:1000px;
-   --midddle-width:800px;
-   --small-width:600px;
- }
   .bread ol{
    display: flex;
    margin-left:  2rem;
@@ -36,7 +24,7 @@
   }
 
   .bread a:hover{
-   background-color: rgba(51,51,51,0.1);
+   background-color: var(--dark-transparent-color7);
 }
 
   
@@ -97,21 +85,18 @@
     bottom: 0;
     left: 0;
     margin: 10px;
-    color: #fff;
     color: var(--icon-color);
    }
 
    .listC h2 {
     margin: 0;
     font-size: 18px;
-    color: #fff;
     color: var(--icon-color);
    }
    .listC p{
     margin:  0;
     font-size: 14px;
     opacity: 0.8;
-    color: #fff;
     color: var(--icon-color);
    }
 
