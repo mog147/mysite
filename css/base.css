@@ -188,7 +188,7 @@ text-align: right;
     font-family: "hydrophilia-iced", sans-serif;
     font-weight: 400;
     font-style: normal;
-    
+
     font-size: 1.5rem;
     letter-spacing: 0.3rem;
 
@@ -465,11 +465,11 @@ nav ul li.has-child::before{
 }
 
 nav li.has-child ul{
-  background: var(--dark-main-color);
+  background: none;
 }
 
 nav li.has-child ul li a{
-	color:var(--dark-transparent-color3);
+	color:var(--dark-transparent-color7);
 }
 
 
