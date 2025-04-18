@@ -37,8 +37,17 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    .headA {
+      display: inline-block;
+      line-height: 70px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
   
     .headB {
+
       display: block !important;
     }
 
@@ -57,9 +66,14 @@
     header .container-small {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       height: 80px;
     }
+
+    .headA {
+      display: none;
+    }
+
     .headB ul {
       margin-top: 0;
       padding-bottom: 1rem;
