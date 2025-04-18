@@ -9,7 +9,8 @@ body {
     ".SFNSDisplay-Regular", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
     Helvetica, "游ゴシック Medium", meiryo, sans-serif;
     letter-spacing: 0.1rem;
-    background-color: var(--dark-main-color);
+
+    background-color: var(--accent-color2);
     color: var(--light-main-color);
     overflow-x: hidden;
 }
@@ -105,7 +106,12 @@ header {
     z-index: 100;     /*← 一番上のレイヤーにする */
     width: 100%;
     position: absolute;
-    background-color: var(--dark-main-color);
+}
+
+/* スクロールしたらヘッダーメニューのフォントカラー変更 */
+.headerColorScroll {
+  background-color: var(--accent-transparent-color);
+  transition: color 0.4s ease-out;
 }
 
 .nohero header {
@@ -200,7 +206,7 @@ text-align: right;
     bottom:0;
 
 
-    background-color: var(--dark-main-color);
+    background-color: var(--accent-color2);
     color: var(--light-main-color);
 
     margin-top: auto;
@@ -517,6 +523,6 @@ nav li.has-child ul li a{
     left: -20px;
     width: 40px;
     height: 40px;
-    background:var(--accent-transparent-color);
+    background:var(--main-transparent-color);
   }
 }

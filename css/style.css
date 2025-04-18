@@ -167,6 +167,7 @@
 .conC,
 .conC__box{
   height: 500px;
+  color: var(--light-main-color); 
 }
 
 .conC__box{
@@ -181,15 +182,11 @@
 }
 
 
-.conC:nth-child(odd){
-  background-color: var(--gray-main-color);
-  color: var(--dark-main-color);
+.conC:nth-child(odd){ 
   flex-direction: row;
 }
 
 .conC:nth-child(even){
-  background-color: var(--dark-main-color);
-  color: var(--light-main-color); 
   flex-direction: row-reverse;
 }
 
@@ -219,6 +216,7 @@
   background-size:contain;
   background-repeat: no-repeat;
   margin:0 3rem;
+  background-color: var(--light-main-color);
 }
 
 .photoA {

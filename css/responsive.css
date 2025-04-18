@@ -1,12 +1,18 @@
 /* 基本色 */
 :root {
   --main-color :#FF0DC1 ;
+  --main-transparent-color:rgba(255, 13, 193, 0.5);
+
   --accent-color : #43D9D8 ;
-  --accent-transparent-color:rgba(255, 13, 193, 0.5);
-  --dark-main-color : #333; 
+  --accent-transparent-color:rgba(67, 217, 216, 0.5);
+
+  --accent-color2:#3F3D56;
+  
   --dark-transparent-color7: rgba(242, 242, 242, 0.7);
   --dark-transparent-color3: rgba(242, 242, 242, 0.3);
   --dark-transparent-color1: rgba(242, 242, 242, 0.1);
+
+  --dark-main-color : #333; 
   --light-main-color : #fff;
   --gray-main-color:#ddd  ;
   --text-bright-color : #f2f2f2;
