@@ -1,70 +1,33 @@
+/* =========================================================
+   Contact Responsive Styles
+   ========================================================= */
 
-@media (min-width:768px) {
-
-    .conE .container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      max-width: var(--large-width);
-      margin-left: auto;
-      margin-right: auto;
-    }
-  
-  }
-  
-  @media (max-width:767px) {
-  
-    .conE .container {
-      text-align: center;
-    }
-  
-    .conE h2 {
-      font-size: 14px;
-    }
-
-  }
-
-/* phone */
-  @media (min-width: 501px) {
-
-  .conE .text br {
-    display: none!important;
-  }
-
-}
-/* tablet */
-@media  (min-width: 769px) and (max-width: 992px) {
-
-  .conE .text .msg .btn{
-    flex: 1;
-    padding: 2.5rem;
-  }
-}
-
-/* pc */
-@media  (min-width:768px){
-
-    .conE p br {
-    display: none!important;
-  }
-  
-}
-
-
-/* phone */
-@media (max-width: 500px) {
-
+@media (max-width: 767px) {
   .conE {
-    overflow-wrap:anywhere;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
-  .conE .text br {
-    display: block !important;
+  .conE .container {
+    padding: 3rem 1.5rem;
+    border-radius: 0;
+    /* Full width on mobile */
+    border-left: none;
+    border-right: none;
   }
 
-  label.error {
-    width: 90%;
+  .conE .frm {
+    max-width: 100%;
   }
 
+  .btn {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
+@media (min-width: 768px) {
+  .conE p br {
+    display: none !important;
+  }
+}

@@ -1,13 +1,6 @@
-
 /* ----------------------------------------- */
-/* conA */
-
-.conA__text{
-  position: absolute;
-  top: 30%;
-  left: 0;
-  padding: 0 5rem;
-}
+/* ヒーローセクション (conA) */
+/* ----------------------------------------- */
 
 .conA {
   position: relative;
@@ -16,215 +9,255 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  
+  background: transparent;
 }
 
-
-
-.conA__title,
-.conA__subtitle{
-  margin-top: 0;
-  color: var(--light-main-color);
-  width: 100vw;
+.conA__text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 0 2.5rem;
+  z-index: 10;
 }
 
 .conA__title {
-  margin-bottom: 0.5rem;
-  font-family: "hydrophilia-iced", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  margin-bottom: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  /* 極細フォントでミニマルに */
   letter-spacing: 0.05em;
-  line-height: 1;
-  font-size: 200px;
-  left:0;  
+  line-height: 1.1;
+  font-size: 8rem;
+  color: var(--light-main-color);
+  opacity: 0.9;
 }
 
-.conA__subtitle{
-  font-family: "hydrophilia-iced", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 27px;
+.conA__subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
   letter-spacing: 0.2em;
-  top:400%;
-  left: 0;
+  color: var(--light-main-color);
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
-.conA__image{
-  position: absolute;
-  top:20%;
-  width: 30%;
-  padding: 0 5rem;
-}
-
-/* video */
-
-.pc{
-  width: 100%;
-}
-
-
-.video{
+/* 背景動画・画像設定 */
+.video {
   width: 100%;
   height: 100vh;
-  background-color: var(--dark-main-color);
   position: absolute;
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
 }
 
-.parallax_bg{
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.video video{
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+.video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  left: 0;
 }
+
+/* レスポンシブ切り替え */
+.video .sp {
+  display: none;
+}
+
+.video .pc {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .video .sp {
+    display: block;
+  }
+
+  .video .pc {
+    display: none;
+  }
+}
+
 
 /* ----------------------------------------- */
-/* conB */
+/* プロフィールセクション (conB) */
+/* ----------------------------------------- */
 
 .conB .container {
   display: flex;
-  max-width: var(--small-width);
-  margin:1rem auto;
+  max-width: var(--large-width);
+  margin: 4rem auto;
+
+  /* ガラスモーフィズム */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+
+  padding: 4rem;
+  border-radius: 24px;
 }
 
-.conB__text{
+.conB__text {
   text-align: center;
   flex: 1;
 }
 
-.conB__title{
-  font-size: 24px;
-  font-weight: normal;
+.conB__title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--light-main-color);
 }
 
-.conB__subtitle{
-  margin-top: -1rem;
-  margin-bottom: 1rem;
-  overflow-wrap: anywhere;
-}
-
-.jp,.en{
+.conB__subtitle {
   margin-top: 0;
-  margin-bottom: 1rem;
-  opacity: 0.8;
-  overflow-wrap: anywhere;
+  margin-bottom: 2rem;
+  color: var(--main-color);
+  font-weight: 500;
 }
 
 .conB__icon {
   display: inline-block;
-  width: 30%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  background-color: var(--main-color);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.more_btn {
-  color: var(--accent-color);
-  /* aタグにmarginは効かないから一度ブロックにする必要あり  */
-  display: block;
-  margin: 3rem;
+/* SNSリンク */
+.sns {
+  margin-top: 2rem;
 }
 
-.more_btn a:hover {
-  text-decoration: underline;
-}
-
-.sns__list{
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sns__item:not(:last-child) {
-  margin-right: 1.5rem;
-}
-
-.sns__item a {
-    font-size: 42px;
-    text-decoration: none;
-    color: var(--main-color);
-}
-
-.sns__item a:hover{
-    background-color:var(--dark-transparent-color1) ;
-}
-
-/* ----------------------------------------- */
-/* conC */
-
-.conC,
-.conC__box{
-  height: 500px;
-  color: var(--light-main-color); 
-}
-
-.conC__box{
+.sns__list {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0 auto;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.boxB{
-  flex-direction: row-reverse; /*左右入れ替え*/
+.sns__item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--main-color);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-
-.conC:nth-child(odd){ 
-  flex-direction: row;
+.sns__item a:hover {
+  background: var(--main-color);
+  color: #1D1D1F;
+  /* Dark text for yellow contrast */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(255, 204, 0, 0.4);
 }
 
-.conC:nth-child(even){
+/* 作品を見るボタンのデザインは共通化のため base.css へ移動いたしました */
+
+
+/* ----------------------------------------- */
+/* カードセクション (conC) */
+/* ----------------------------------------- */
+
+.conC {
+  color: var(--light-main-color);
+}
+
+.conC__box {
+  height: auto;
+  max-width: var(--large-width);
+  /* 横幅を最大限に */
+  width: 100%;
+}
+
+.conC__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 3rem;
+
+  /* ガラスモーフィズム */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+
+  border-radius: 24px;
+  overflow: visible;
+  /* 丸い画像を見せるため */
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 互い違いレイアウト（画像を右側に） */
+.conC__box.boxB {
   flex-direction: row-reverse;
 }
 
+.conC__box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.conC__text {
+  padding: 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .conC__title {
-  margin-top: 0;
+  font-family: -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--light-main-color);
   margin-bottom: 1rem;
-  color: var(--main-color);
-  font-size: 1.5rem;
-  font-weight: normal;
-  letter-spacing: 0.2rem;
-  font-family: "hydrophilia-iced", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
-.conC p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  line-height: 1.8;
-  opacity: 0.8;
-}
-
-
-
+/* カード画像（丸形） */
 [class^="photo"],
-[class*=" photo"]{
-  min-height: 500px;
-  width: 33%;
-	background-position: right;
-  background-size:contain;
+[class*=" photo"] {
+  width: 280px;
+  height: 280px;
+  /* 高さを幅と同じにして完全な円に */
+  flex-shrink: 0;
+
+  /* 丸形にする */
+  border-radius: 50%;
+
+  background-position: center;
+  background-size: contain;
+  /* 画像全体を収める */
   background-repeat: no-repeat;
-  margin:0 3rem;
-  background-color: var(--light-main-color);
+  background-color: #FFFFFF;
+
+  /* 少し外側に配置 */
+  margin: 2rem;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .photoA {
@@ -243,45 +276,39 @@
   background-image: url(../img/con4.png);
 }
 
+
 /* ----------------------------------------- */
-/* news */
+/* ニュースセクション */
+/* ----------------------------------------- */
 
 .news {
   text-align: center;
   display: flex;
   justify-content: center;
   margin-bottom: 10rem;
-  
 }
 
-.news .text{
+.news .text {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 3rem;
   text-align: center;
-  font-size: 0.875rem; 
-}
-
-.news .more_btn{
-  font-size: 1rem !important;
+  font-size: 0.875rem;
 }
 
 .news a {
   text-decoration: none;
-  font-size: 1rem;
   font-size: 0.875rem;
 }
 
 .news a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #top-info {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 2rem;
+  padding: 0 1rem 2rem;
 }
-
 
 .news th,
 .news td {
@@ -301,68 +328,3 @@
   padding-right: 1rem;
   text-align: left;
 }
-
-
-.news .btn {
-  display: block;
-  color: var(--accent-color);
-  text-decoration:none;
-  letter-spacing: 0.3rem;
-  word-break: keep-all;
-}
-
-.news a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-
-/*========= LoadingのためのCSS ===============*/
-
-/* Loading背景画面設定 */
-#splash {
-  /*fixedで全面に固定*/
-position: fixed;
-width: 100%;
-height: 100%;
-z-index: 999;
-text-align:center;
-color:var(--light-main-color);
-}
-
-/* Loading画像中央配置 */
-#splash_text {
-position: absolute;
-top: 50%;
-left: 50%;
-  z-index: 999;
-transform: translate(-50%, -50%);
-color:var(--light-main-color);
-width: 100%;
-}
-
-
-/*割れる画面のアニメーション*/
-.loader_cover {
-  width: 100%;
-  height: 50%;
-  background-color: var(--dark-main-color);
-  transition: all .2s cubic-bezier(.04, .435, .315, .9);
-  transform: scaleY(1);
-}
-/*上の画面*/
-.loader_cover-up {
-  transform-origin: center top;
-}
-
-/*下の画面*/
-.loader_cover-down {
-  position: absolute;
-  bottom: 0;
-  transform-origin: center bottom;
-}
-/*クラス名がついたらY軸方向に0*/
-.coveranime {
-  transform: scaleY(0);
-}
-

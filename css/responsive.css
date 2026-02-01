@@ -1,25 +1,43 @@
-/* 基本色 */
 :root {
-  --main-color :#FF0DC1 ;
-  --main-transparent-color:rgba(255, 13, 193, 0.5);
+  /* Modern Yellow Palette */
+  --main-color: #FFCC00;
+  /* Vibrant Modern Yellow */
+  --main-transparent-color: rgba(255, 204, 0, 0.2);
 
-  --accent-color : #43D9D8 ;
-  --accent-transparent-color:rgba(67, 217, 216, 0.5);
+  /* Interaction/Secondary */
+  --accent-color: #FFD60A;
+  /* Brighter accent yellow */
+  --accent-transparent-color: rgba(255, 214, 10, 0.2);
 
-  --accent-color2:#3F3D56;
-  
-  --dark-transparent-color7: rgba(242, 242, 242, 0.7);
-  --dark-transparent-color3: rgba(242, 242, 242, 0.3);
-  --dark-transparent-color1: rgba(242, 242, 242, 0.1);
+  /* Body Background: Apple System Gray 6 */
+  --accent-color2: #F5F5F7;
 
-  --dark-main-color : #333; 
-  --light-main-color : #fff;
-  --gray-main-color:#ddd  ;
-  --text-bright-color : #f2f2f2;
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  --glass-blur: blur(20px);
 
-  --large-width:1000px;
-  --midddle-width:800px;
-  --small-width:600px;
+  /* Shadows & Transparencies (for Light Mode) */
+  --dark-transparent-color7: rgba(0, 0, 0, 0.7);
+  --dark-transparent-color3: rgba(0, 0, 0, 0.1);
+  --dark-transparent-color1: rgba(0, 0, 0, 0.05);
+
+  /* Component/Card Backgrounds */
+  --dark-main-color: #FFFFFF;
+
+  /* Text Color: Almost Black */
+  --light-main-color: #1D1D1F;
+
+  /* Subtext/Borders */
+  --gray-main-color: #86868B;
+
+  /* For elements requiring white text */
+  --text-bright-color: #FFFFFF;
+
+  --large-width: 1000px;
+  --midddle-width: 800px;
+  --small-width: 600px;
 }
 
 /* ------------------------ */
@@ -27,346 +45,244 @@
 
 /* pc */
 @media (min-width:768px) {
-    header .container {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      max-width: 1000px;
-      max-width: var(--large-width);
-      margin-left: auto;
-      margin-right: auto;
-    }
+  header .container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    max-width: var(--large-width);
+    margin-left: auto;
+    margin-right: auto;
+    /* Glassmorphism moved to header element for full-width effect */
+  }
 
-    .headA {
-      display: inline-block;
-      line-height: 70px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  
-  
-    .headB {
+  .headA {
+    display: inline-block;
+    line-height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--main-color);
+    /* Updated text color */
+  }
 
-      display: block !important;
-    }
 
-    .headB ul {
-      display: flex;
-    }
-  
-    .headC {
-      display: none;
-    }
+  .headB {
 
-}
+    display: block !important;
+  }
 
-/* phone */
-@media (max-width :767px) {
-    header .container-small {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: 80px;
-    }
+  .headB ul {
+    display: flex;
+  }
 
-    .headA {
-      display: none;
-    }
-
-    .headB ul {
-      margin-top: 0;
-      padding-bottom: 1rem;
-
-    }
-
-    .headB li {
-      padding: 0;
-    }
-
-    .headB a {
-      font-size: 1rem;
-      margin-top: -1rem;
-    } 
-  
-    .headC {
-      margin-top: 0.3rem;  
-      margin-right: 3rem;
-      padding: 0;
-      border: 0;
-      outline:0;
-      background: none;
-      font-size: 28px;
-      opacity: 0.5;
-      cursor: pointer;
-    }
-  
-    .headC:hover {
-      opacity: 0.3;
-    }
-  
-    .headB {
-      display: none;
-    }
-
-    .skill {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      padding-left: 0;
-      margin-bottom: 5rem;
-      width: 300px;
-    }
-  
-  
-  
-    .skill img{
-      margin-right: 1rem;
-      list-style: none;
-      width: 40px;
-      margin-bottom: 1rem;
-    }
-}
-
-/* ------------------------ */
-/* 共通 */
-
-/* phone */
-@media (max-width: 500px) {
-    
-  .text br {
+  .headC {
     display: none;
   }
 
 }
 
-@media (max-width:767px) {
+/* phone */
+@media (max-width :767px) {
+  header .container-small {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80px;
+  }
+
+  .headA {
+    display: none;
+  }
+
+  .headB ul {
+    margin-top: 0;
+    padding-bottom: 1rem;
+
+  }
+
+  .headB li {
+    padding: 0;
+  }
+
+  .headB a {
+    font-size: 1rem;
+    margin-top: -1rem;
+  }
+
+  .headC {
+    margin-top: 0.3rem;
+    margin-right: 3rem;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    font-size: 28px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .headC:hover {
+    opacity: 0.3;
+  }
+
+  .headB {
+    display: none;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 5rem;
+    width: 300px;
+  }
+
+
+
+  .skill img {
+    margin-right: 1rem;
+    list-style: none;
+    width: 40px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ------------------------ */
+/* 共通 & 作品セクション (conC) */
+
+/* mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .conA__title {
+    font-size: 3.5rem !important;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+  }
 
   .title {
     text-align: center;
     font-size: 24px;
+    margin-bottom: 2rem;
   }
 
+  /* conC カードのスマホ調整 */
+  .conC__box,
+  .conC__box.boxB {
+    flex-direction: column !important;
+    padding: 3rem 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  [class^="photo"],
+  [class*=" photo"] {
+    width: 200px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    margin: 0 auto 2rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .conC__text {
+    padding: 0 !important;
+    width: 100%;
+  }
+
+  .conC__title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .conC p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* ボタンのスマホ調整 */
+  .btnA {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btnA a {
+    margin: 2rem 0 0 !important;
+    width: fit-content !important;
+    max-width: none !important;
+    padding-left: 3.5rem !important;
+    padding-right: 1.5rem !important;
+    height: 2.8rem !important;
+  }
+
+  .btnA a::after {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+  }
+
+  .btnA a::before {
+    left: 1rem !important;
+  }
 }
 
-/* pc */
+/* font設定 (詳細調整) */
+@media (max-width:599px) {
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* pc (min-width: 768px) */
 @media (min-width:768px) {
-  
   .title {
     text-align: center;
     font-size: 30px;
-  }
-
-}
-
- /* font設定 */
- @media (max-width:599px) {
-  h2 {
-      font-size: 18px;
-  }
-
-  p {
-      font-size: 14px;
+    margin-bottom: 4rem;
   }
 }
 
-@media (min-width:600px) and (max-width:799px) {
-  h2 {
-      font-size: 20px;
-  }
-
-  p {
-      font-size: 16px;
-  }
-}
-
-@media (min-width:600px) and (max-width:799px) {
-  h2 {
-      font-size: 24px;
-  }
-
-  p {
-      font-size: 18px;
-  }
-}
-
-/* ------------------------ */
 /* footer */
-
-/* スマホのときだけ折り返す */
 @media (max-width: 500px) {
   .footer {
-    overflow-wrap:anywhere;
+    overflow-wrap: anywhere;
   }
-} 
-
-@media (min-width:768px) {
-    .footer .container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      max-width: var(--large-width);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .footB {
-        display: flex;
-      }
-    
-    .footB div {
-        flex: 1;
-    }
-
-    .footB div:not(:first-child){
-        margin-left: 40px;
-    }
-
-
-    .footA {
-        flex: 0 0 40%;
-    }
-    
-    .footB {
-        flex: 0 0 60%;
-    }
-    
-    .footC {
-        flex: 0 0 100%;
-    }
 }
 
-
-/* pc */
 @media (min-width:768px) {
-
-  .footer_fixed {
-    position: fixed;
-  }
-  
-}
-/* ------------------------ */
-/* btn */
-
-/******* メディアクエリ での制御 *******/
-/* :hoverが使える端末を想定 */
-@media (hover: hover) {
-
-    .headB a:hover{
-      background-color: rgba(242, 242, 242, 0.3);
-    }
-
-    .listC a:hover{
-      opacity: 0.8;
-     }  
-      
-    .btnA a {
-        position: relative;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-top:5rem; /*ボタンのmarginを調整*/
-
-        max-width: 270px;
-        width: 100%;
-        
-        padding: 10px 0px 10px 25px;
-        letter-spacing: 0.2rem;
-        line-height: 1.8;
-        color: var(--light-main-color);
-        transition: 0.3s ease-in-out;
-        font-size: 16px;
-        height: 4rem;
-    }
-    
-    .btnA a span {
-      position: relative;
-      transition: all 0.3s;
-      z-index: 3;
-    }
-
-    .btnA a:before, .btnA a:after {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 50%;
-      }
-
-      .btnA a:before {
-        width: 0.5rem;
-        height: 0.5rem;
-        left: 1.1rem;
-        border-top: solid 2px #fff;
-        border-right: solid 2px #fff;
-        z-index: 2;
-        transform: translateY(-50%) rotate(45deg);
-        transition: all 0.3s;
-      }
-
-      .btnA a:after {
-        left: 0;
-        background:var(--main-color);
-        z-index: 1;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 4rem;
-        transform: translateY(-50%);
-        transition: all 0.5s;
-      }
-
-      .btnA a:hover span {
-        color: var(--light-main-color)
-      }
-
-      .btnA a:hover:before {
-        left: 2.5rem;
-        border-top: solid 2px var(--light-main-color);
-        border-right: solid 2px var(--light-main-color);
-      }
-
-      .btnA a:hover:after {
-        right: 0;
-        width: 100%;
-        background: var(--main-color);
-      }
-      
-
-  }
-
-  /* :hoverが使えない端末を想定 */
-  @media (hover: none) {
-
-  .headB a{
-      background-color:none;
-    }
-
-
-  .btnA a {
-    display: inline-block;
-    letter-spacing: 0.2rem;
-    font-size: 12px;
-    line-height: 1.8;
-    color: var(--light-main-color);
-    background: var(--main-color);
-    
-    padding: 5px 8px;
-    z-index: 1;
-    height: 4rem;
-    border-radius: 4rem;
-
-    max-width: 270px;
-    width: 100%;
-    display: block;
-    margin:3rem auto 0 auto;
-
+  .footer .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    }
-
-       
-
+    flex-wrap: wrap;
+    max-width: var(--large-width);
+    margin-left: auto;
+    margin-right: auto;
   }
-  
+
+  .footB {
+    display: flex;
+  }
+
+  .footB div {
+    flex: 1;
+  }
+
+  .footB div:not(:first-child) {
+    margin-left: 40px;
+  }
+
+  .footA {
+    flex: 0 0 40%;
+  }
+
+  .footB {
+    flex: 0 0 60%;
+  }
+
+  .footC {
+    flex: 0 0 100%;
+  }
+}

@@ -1,3 +1,4 @@
+/* conC */
 
 /* conC */
 
@@ -7,6 +8,18 @@
 
 .conC .container {
   padding-bottom: 3rem;
+
+  /* Glassmorphism */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+
+  margin-bottom: 4rem;
+  text-align: center;
+  /* Center align text */
 }
 
 .conC .text {
@@ -17,12 +30,10 @@
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--main-color);
-  font-size: 1.5rem;
-  font-weight: normal;
-  letter-spacing: 0.2rem;
-  font-family: "hydrophilia-iced", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-family: -apple-system, sans-serif;
 }
 
 .conC p {
@@ -30,22 +41,25 @@
   margin-bottom: 1rem;
   line-height: 1.8;
   opacity: 0.8;
+  color: var(--dark-transparent-color7);
 }
 
 .conC .photo {
-  min-height: 200px;
+  min-height: 300px;
   background-image: url(../img/watercolor.png);
   background-position: center;
-  background-size:contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 24px 24px 0 0;
 }
 
 .conC .photo2 {
-  min-height: 200px;
+  min-height: 300px;
   background-image: url(../img/digitalart.png);
   background-position: center;
-  background-size:contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 24px 24px 0 0;
 }
 
 /* conD */
@@ -53,6 +67,18 @@
 .conD .container {
   padding-top: 0;
   padding-bottom: 3rem;
+
+  /* Glassmorphism */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+
+  margin-bottom: 4rem;
+  text-align: center;
+  /* Center align */
 }
 
 .conD .text {
@@ -63,9 +89,10 @@
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--main-color);
-  font-size: 1.5rem;
-  font-weight: normal;
-  letter-spacing: 0.2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-family: -apple-system, sans-serif;
 }
 
 .conD p {
@@ -73,22 +100,18 @@
   margin-bottom: 1rem;
   line-height: 1.8;
   opacity: 0.8;
+  color: var(--dark-transparent-color7);
 }
 
-.conD a:hover{
-  background-image: linear-gradient(
-    var(--dark-transparent-color3)
-  );
+.conD a:hover {
+  opacity: 0.8;
 }
 
 .conD .photo {
-  min-height: 200px;
+  min-height: 300px;
   background-image: url(../img/pencil.png);
-  background-size:contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 24px 24px 0 0;
 }
-
-
-
-

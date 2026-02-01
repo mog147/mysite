@@ -1,129 +1,134 @@
- 
-  .bread ol{
-   display: flex;
-   margin-left:  2rem;
-   padding: 0;
-   list-style: none;
-   
-   }
-   
-   .bread a {
-       display: block;
-       padding: 5px;
-       color: var(--light-main-color);
-       font-size: 0.875rem;
-       text-decoration:none;
-       letter-spacing: 0.3rem;
-   }
+ .bread ol {
+    display: flex;
+    margin-left: 2rem;
+    padding: 0;
+    list-style: none;
 
-   .bread a::after{
-      margin-left: 10px;
-      content: '\f054';
-      font-family: 'FontAwesome';
-      opacity: 0.3;
-  }
+ }
 
-  .bread a:hover{
-   background-color: var(--dark-transparent-color7);
-}
+ .bread a {
+    display: block;
+    padding: 5px;
+    color: var(--light-main-color);
+    font-size: 0.875rem;
+    text-decoration: none;
+    letter-spacing: 0.3rem;
+ }
 
-  
+ .bread a::after {
+    margin-left: 10px;
+    content: '\f054';
+    font-family: 'FontAwesome';
+    opacity: 0.3;
+ }
 
-   .listC h1 {
+ .bread a:hover {
+    background-color: var(--dark-transparent-color7);
+ }
+
+
+
+ .listC h1 {
     text-align: center;
-   }
+ }
 
-   .listC .container {
+ .listC .container {
     display: flex;
     flex-wrap: wrap;
     max-width: none;
     margin: 30px auto;
-   }
+ }
 
-   .listC article{
+ .listC article {
     flex: 1 1 250px;
     display: flex;
-   }
+ }
 
-   .listC a {
-    position:relative;
+ .listC a {
+    position: relative;
     flex: 1;
     margin: 10px;
     display: block;
-    background-color: currentColor;
+    background-color: #fff;
     color: inherit;
     text-decoration: none;
-   }
-   
+ }
 
 
-   .listC .photo {
+
+ .listC .photo {
     min-height: 250px;
     background-position: center;
-    background-size:cover;
-    opacity: 0.8; 
-   }
+    background-size: cover;
+    opacity: 0.8;
+ }
 
-/* 上がりすぎてる画像調整 */
-   .listC .photo_tbr {
+ /* 上がりすぎてる画像調整 */
+ .listC .photo_tbr {
     min-height: 250px;
     background-position: 30% 30%;
-    background-size:cover;
-    opacity: 0.6; 
-   }
-/* 下がりすぎてる画像調整 */
-   .listC .photo_tbr2 {
+    background-size: cover;
+    opacity: 0.6;
+ }
+
+ /* 下がりすぎてる画像調整 */
+ .listC .photo_tbr2 {
     min-height: 250px;
     background-position: 80% 80%;
-    background-size:cover;
-    opacity: 0.6; 
-   }
-   
+    background-size: cover;
+    opacity: 0.6;
+ }
 
-   .listC .text {
+
+ .listC .text {
     position: absolute;
     bottom: 0;
     left: 0;
     margin: 10px;
     color: var(--icon-color);
-   }
+ }
 
-   .listC h2 {
+ .listC h2 {
     margin: 0;
     font-size: 18px;
     color: var(--icon-color);
-   }
-   .listC p{
-    margin:  0;
+ }
+
+ .listC p {
+    margin: 0;
     font-size: 14px;
     opacity: 0.8;
     color: var(--icon-color);
-   }
+ }
 
-/*------------------------------------
+ /*------------------------------------
 ふわっとCSS↓
 ------------------------------------*/
-.fadeup {
-   animation-name: fadeupAnime;
-   animation-duration: 0.8s;
-   animation-fill-mode: forwards;
-   opacity: 0;
+ .fadeup {
+    animation-name: fadeupAnime;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    opacity: 0;
  }
- @keyframes fadeupAnime{
-   from {
-   opacity: 0;
-   transform: translateX(-100px); /*左から出現*/ 
-   }
-   to {
-   opacity: 1;
-   transform: translateY(0);
-   }
+
+ @keyframes fadeupAnime {
+    from {
+       opacity: 0;
+       transform: translateX(-100px);
+       /*左から出現*/
+    }
+
+    to {
+       opacity: 1;
+       transform: translateY(0);
+    }
  }
+
  @media screen and (max-width: 600px) {
-   .fluffy img {
-     width: 100%;
-     margin: auto;
-     display: block;
-     padding: 10px 0;
-   }
+    .fluffy img {
+       width: 100%;
+       margin: auto;
+       display: block;
+       padding: 10px 0;
+    }
  }

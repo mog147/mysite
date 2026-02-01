@@ -1,98 +1,57 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    
-    <meta charset="UTF-8">
 
-    <!-- レスポンシブデザインに必須 -->
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    
-    <title>396 FOLIO</title>
+
+    <title>396 FOLIO | Portfolio of Momoko Tezuka</title>
     <link rel="icon" href="img/avatar.png">
 
-
-    <!-- css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <!-- CSSライブラリ（最小限） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script src="https://kit.fontawesome.com/96078d8661.js" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-    <!-- 自作は一番下に書く -->
-
+    <!-- 自作CSS -->
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style_r.css">
-    <link rel="stylesheet" type="text/css" href="css/news_r.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/s.css">
 
-
-    <style>
-        .st-only {
-            position: absolute;
-            width: 1;
-            height: 1;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            border: 0;
-        }
-    </style>
-
+    <!-- フォント (Adobe Typekit) -->
     <script>
-        (function(d) {
-        var config = {
-            kitId: 'bju5ppq',
-            scriptTimeout: 3000,
-            async: true
-        },
-        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        (function (d) {
+            var config = { kitId: 'bju5ppq', scriptTimeout: 3000, async: true },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout),
+                tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
+            h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true;
+            tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } };
+            s.parentNode.insertBefore(tk, s)
         })(document);
     </script>
-
 </head>
-<body>
-    
-    <div id="cursor" class="cursor"></div>
 
-    <div id="splash">
-        <div id="splash_text"></div>
-        <div class="loader_cover loader_cover-up"></div><!--上に上がるエリア-->
-        <div class="loader_cover loader_cover-down"></div><!--下に下がるエリア-->
-        <!--/splash-->
-    </div>
+<body class="nohero">
 
+    <!-- ヘッダーセクション -->
     <header class="head-fixed js-header">
-
         <div class="container">
-
+            <!-- モバイル用メニューボタン -->
             <div class="container-small">
-
-                <button type="button" class="headC"><span class="fa fa-bars" title=""></span>
-                </button> 
-    
+                <button type="button" class="headC" aria-label="Menu">
+                    <span class="fa fa-bars"></span>
+                </button>
             </div>
- 
-            <nav class="headA"><a href="index.html"></a></nav>
 
+            <!-- ナビゲーション -->
             <nav class="headB">
-
                 <ul>
                     <li><a href="#">TOP</a></li>
                     <li><a href="#WORKS">WORKS</a></li>
                     <li><a href="news.html">NEWS</a></li>
                     <li><a href="about.html">ABOUT</a></li>
-                    <li class="has-child"><a href="gallery.html">GALLERY</a><!--子要素を持つ li にはhas-childというクラス名をつける-->
+                    <li class="has-child">
+                        <a href="gallery.html">GALLERY</a>
                         <ul>
                             <li><a href="gallery.html">GALLERY Top</a></li>
                             <li><a href="gallery1.html">Water color</a></li>
@@ -100,125 +59,101 @@
                             <li><a href="gallery3.html">Digital art</a></li>
                         </ul>
                     </li>
-
                     <li><a href="contact.html">CONTACT</a></li>
                     <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
                 </ul>
-
             </nav>
-
         </div>
     </header>
 
-    <section class="conA">
-        <div>
-           
+    <main>
+        <!-- ヒーローセクション（メインビジュアル） -->
+        <section class="conA">
             <div class="video">
-                <img class="pc" src="img/top.png" alt="パソコン用の画像">
-                <img class="sp" src="img/topB.png" alt="スマートフォン用の画像">
-                <!-- <video class="parallax_bg" src="img/top.mp4" autoplay loop muted playsinlin></video> -->
+                <img class="pc" src="img/top.png" alt="Main Visual">
+                <img class="sp" src="img/topB.png" alt="Main Visual Mobile">
             </div>
 
             <div class="conA__box">
-
-                <!-- <img class="conA__image" src="img/sign.png" alt=""> -->
-
                 <div class="conA__text">
-  
-                    <h1 class="conA__title glitch" data-text="396">396</h1>
-                    <h1 class="conA__title glitch"data-text="FOLIO">FOLIO</h1>
-                    <p class="conA__subtitle glitch" data-text="Design & Programming & Art & Writing">Design & Programming & Art & Writing</p>
-
+                    <h1 class="conA__title">396 FOLIO</h1>
+                    <p class="conA__subtitle">Design & Programming & Art & Writing</p>
                 </div>
-
             </div>
+        </section>
 
-
-
-        </div>
-    </section>
-
-    <div class="scrollbox">
-
+        <!-- プロフィールセクション -->
         <section class="conB js-wrapper">
             <div class="container">
-
                 <div class="conB__text">
-
-                    <img class="conB__icon" src="img/avatar.png" alt="">
+                    <img class="conB__icon" src="img/avatar.png" alt="Avatar">
                     <h2 class="conB__title">手塚 桃子</h2>
                     <p class="conB__subtitle">TEZUKA MOMOKO</p>
 
                     <div class="jp">
-
-                        <p>主に社内SEとして10年以上ITサポートやシステム管理に携わる。
-                            <br>アーティストとしても活動し、作品やグッズを販売。</p>
-                        <p>趣味はエッセイを書くこと。</p>
-                        <p>「ものづくり」が好きなため、デザインのスキルを身につけて
-                            <br> 将来はWebデザイナーとして活躍したいと考えている。</p>
-
+                        <p>主に社内SEとして10年以上ITサポートやシステム管理に携わりつつ、<br>アーティストとしても活動。</p>
+                        <p>「ものづくり」が好きで、Webデザインや執筆など幅広く表現を追求しています。</p>
                     </div>
 
                     <div class="en">
-                        <p>I have over 10 years of experience in IT support and system administration, primarily as an in-house SE.</p>
-                        <p>I am also active as an artist, selling my works and goods.
-                            On my days off, I write essays.
-                            I like “making things,” so in the future I would like to acquire design skills and work as a web designer.</p>   
+                        <p>I have over 10 years of experience in IT support. <br>I am also active as an artist and
+                            writer.</p>
                     </div>
 
-                        <a class="more_btn" href="about.html#CAREER">MORE...
-                        <span class="fa fa-chevron-right"></span>
-                        
+                    <a class="more_btn" href="about.html#CAREER">
+                        MORE... <span class="fa fa-chevron-right"></span>
                     </a>
 
+                    <!-- SNSリンク -->
                     <nav class="sns">
                         <ul class="sns__list">
-                            <li class="sns__item"><a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank">
-                                <span class="fa-brands fa-square-threads" title="threads" >
-                                </span>
-                            </a></li>  
-                            
-                            <li class="sns__item"><a href="https://www.instagram.com/mogmog_atelier/" target="_blank">
-                                <span class="fa-brands fa-instagram" title="instagram">
-                                </span>
-                            </a></li>
-                            
-                            <li class="sns__item"><a href="https://note.com/mog_0147/" target="_blank"target="_blank">
-                                <span  class="fa-regular fa-note-sticky" title="note" >
-                                </span>
-                            </a></li>
-
+                            <li class="sns__item">
+                                <a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank"
+                                    aria-label="Threads">
+                                    <span class="fa-brands fa-square-threads"></span>
+                                </a>
+                            </li>
+                            <li class="sns__item">
+                                <a href="https://www.instagram.com/mogmog_atelier/" target="_blank"
+                                    aria-label="Instagram">
+                                    <span class="fa-brands fa-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="sns__item">
+                                <a href="https://note.com/mog_0147/" target="_blank" aria-label="Note">
+                                    <span class="fa-regular fa-note-sticky"></span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
-
-                </div> 
-
-        </section>
-
-        <div class="glitch-wrapper">
-            <a id="NEWS" class="title anchor glitch2" data-text="- NEWS -">- NEWS -</a>
-        </div>
-        
-
-        <section class="news">
-            <div class="container">
- 
-                <!-- 【開始】新着情報1件表示 -->
-                <div id="top-info"class="text"></div>
-                <!-- 【終了】新着情報1件表示 -->
-
-                <a  class="more_btn" href="news.html">MORE...
-                    <span class="fa fa-chevron-right"></span>
-                </a>
-
+                </div>
             </div>
         </section>
 
+        <!-- ニュースセクション -->
         <div class="glitch-wrapper">
-            <a id="WORKS" class="title anchor glitch2" data-text="- WORKS -">- WORKS -</a>
+            <h2 id="NEWS" class="title anchor">- NEWS -</h2>
         </div>
 
+        <section class="news">
+            <div class="container">
+                <!-- 動的ニュースコンテンツ (JSで読み込み) -->
+                <div id="top-info" class="text"></div>
+
+                <a class="more_btn" href="news.html">
+                    MORE... <span class="fa fa-chevron-right"></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 実績セクション -->
+        <div class="glitch-wrapper">
+            <h2 id="WORKS" class="title anchor">- WORKS -</h2>
+        </div>
+
+        <!-- デザイン -->
         <section class="conC">
+
             <div class="container">
 
                 <div class="conC__box">
@@ -227,198 +162,135 @@
 
                     <div class="conC__text">
 
-                        <h2 class="conC__title">Design</h2>   
-                        <p>すっきりとした余白のあるデザインを得意としており、
-                            <br>シンプルさと機能美を意識しています。</p>
+                        <h2 class="conC__title">Design</h2>
+                        <p>シンプルさと機能美を意識した、余白のあるデザイン。</p>
+                        <p>ユーザーが見やすく使いやすいレイアウトを追求しています。</p>
 
-                        <p>洗練されたデザインが伝える力を信じ、ユーザーにとって
-                            <br>見やすく、使いやすいレイアウト作りを心掛けています。
-                            <br>今後もより多くの方に喜んでいただけるデザインを目指して、
-                            <br>スキルを磨いていきます。</p>
-
-                        <div class="btnA" ontouchstart="">
+                        <div class="btnA">
                             <a href="https://fori.io/momoko-tz0402" target="_blank">
-                            <span>作品を見る</span>
+                                <span class="text">作品を見る</span>
                             </a>
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
         </section>
 
+        <!-- プログラミング -->
         <section class="conC">
             <div class="container">
-
                 <div class="conC__box boxB">
-
                     <div class="photoB"></div>
-
                     <div class="conC__text">
-
                         <h2 class="conC__title">Programming</h2>
-                        <p>VBAを活用した効率化ツールの作成を得意としており、
-                        <br>Excel・Accessを使った自動化に注力しています。</p>
-                        <p>業務の手間を削減し、業務フローの改善を目指して、
-                        <br>ユーザーフレンドリーかつメンテナンスしやすいツール作りを
-                        <br>心掛けています。</p>
-
-                        <div class="btnA" ontouchstart="">
-                            <a href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14" target="_blank">
-                                <span class="text2">作品を見る</span>
+                        <p>VBAや自動化ツールによる業務効率化。</p>
+                        <p>メンテナンス性とユーザーの使いやすさを重視したツール開発。</p>
+                        <div class="btnA">
+                            <a href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14"
+                                target="_blank">
+                                <span class="text">作品を見る</span>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
-        
+
+        <!-- アート -->
         <section class="conC">
             <div class="container">
-
                 <div class="conC__box">
-
                     <div class="photoC"></div>
-
                     <div class="conC__text">
-
-                        <h2 class="conC__title">Art</h2>   
-                        <p>デジタルイラストとアナログの両方で作品を制作しており、
-                        <br>生き物や植物をモチーフにした繊細なイラストが得意です。</p>
-                        <p>柔らかな色彩とアンニュイさ大切にし、
-                            <br>見る人に問いを訴えかけるよう心がけています。
-                        <br>展示会やオンライングッズ販売もしています。</p>
-                        
-                        <div class="btnA" ontouchstart="">
+                        <h2 class="conC__title">Art</h2>
+                        <p>デジタル・アナログ両方で描く、繊細な植物や生き物。</p>
+                        <p>柔らかな色彩とアンニュイな世界観を大切にしています。</p>
+                        <div class="btnA">
                             <a href="gallery.html" target="_blank">
-                                <span>作品を見る</span>
+                                <span class="text">作品を見る</span>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
 
-
+        <!-- ライティング -->
         <section class="conC">
             <div class="container">
-
                 <div class="conC__box boxB">
-
                     <div class="photoD"></div>
-
                     <div class="conC__text">
-
                         <h2 class="conC__title">Writing</h2>
-                        <p>日常の些細な出来事や、ふと心に残る瞬間に目を向けることが
-                        <br>好きです。
-                        </p>
-                        <p>その気付きをエッセイとして書き留め、
-                        <br>言葉を通して誰かと共感できる時間を大切にしています。
-                        <br>穏やかな文章で、日々の景色に新たな視点を
-                        <br>添えていきたいと願っています。
-                        </p>
-
-                        <div class="btnA" ontouchstart="">
+                        <p>日常の瞬間に目を向けたエッセイ。</p>
+                        <p>共感と新たな視点をもたらす、穏やかな言葉を紡ぎます。</p>
+                        <div class="btnA">
                             <a href="https://note.com/mog_0147/" target="_blank">
-                                <span class="text2">作品を見る</span>
+                                <span class="text">作品を見る</span>
                             </a>
                         </div>
-
                     </div>
-            
                 </div>
-
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <div class="footer">
+    <!-- フッターセクション -->
+    <footer class="footer">
         <div class="container">
-
             <div class="footA">
-
-                    <h2>396 FOLIO</h2>
-                    <p>momoko.tz0402@gmail.com</p>
-                    <P><a href="https://momoko0402.web.fc2.com">https://momoko0402.web.fc2.com</a></P>
+                <h2>396 FOLIO</h2>
+                <p>momoko.tz0402@gmail.com</p>
+                <p><a href="https://momoko0402.web.fc2.com">https://momoko0402.web.fc2.com</a></p>
 
                 <nav class="footD">
                     <ul>
-                        <li><a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank">
-                            <span class="fa-brands fa-square-threads" title="threads" >
-                            </span>
-                        </a></li>  
-                        
-                        <li><a href="https://www.instagram.com/mogmog_atelier/" target="_blank">
-                            <span class="fa-brands fa-instagram" title="instagram">
-                            </span>
-                        </a></li>
-                        
-                        <li><a href="https://note.com/mog_0147/" target="_blank"target="_blank">
-                            <span  class="fa-regular fa-note-sticky" title="note" >
-                            </span>
-                        </a></li>
-
+                        <li><a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank"
+                                aria-label="Threads"><span class="fa-brands fa-square-threads"></span></a></li>
+                        <li><a href="https://www.instagram.com/mogmog_atelier/" target="_blank"
+                                aria-label="Instagram"><span class="fa-brands fa-instagram"></span></a></li>
+                        <li><a href="https://note.com/mog_0147/" target="_blank" aria-label="Note"><span
+                                    class="fa-regular fa-note-sticky"></span></a></li>
                     </ul>
                 </nav>
-
             </div>
 
             <nav class="footB">
                 <div>
-
                     <ul>
                         <li><a href="#">TOP</a></li>
                         <li><a href="#WORKS">WORKS</a></li>
                         <li><a href="news.html">NEWS</a></li>
                         <li><a href="about.html">ABOUT</a></li>
                     </ul>
-
                 </div>
                 <div>
-
                     <ul>
-                        
                         <li><a href="gallery.html">GALLERY</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
                         <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
                     </ul>
-
                 </div>
-
             </nav>
 
             <div class="footC">
-                © MOMOKO TEZUKA
+                &copy; MOMOKO TEZUKA
             </div>
 
             <div class="footD">
-                <div id="page_top"><a href="#"></a></div>
+                <div id="page_top"><a href="#" aria-label="Back to top"></a></div>
             </div>
+        </div>
+    </footer>
 
-        </div>            
-    </div>
-
-
-</div>
-
-<!-- body 終了タグ直前に jQuery、ProgressBar.js、動きを制御する自作のJS の3つを読み込みます。 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-
-<script src="js/main.js"></script>
-
-
-
+    <!-- スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>

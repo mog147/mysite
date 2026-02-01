@@ -1,122 +1,120 @@
-/* パソコンで見たときは"pc"のclassがついた画像が表示される */
-.pc { display: block !important; }
-.sp { display: none !important; }
- 
-/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
-@media only screen and (max-width: 750px) {
-  .pc { display: none !important; }
-  .sp { display: block !important; }
-}
+@charset "UTF-8";
 
-/* phone */
+/* =========================================================
+   スマートフォン用レスポンシブスタイル (max-width: 599px)
+   ========================================================= */
+
 @media (max-width: 599px) {
 
-  .sp{
-    width: 100%;
+  /* セクション共通 */
+  section {
+    margin: 5rem 0;
+    /* 余白を確保 */
   }
 
-  .news th,
-  .news td{
+  [class$="__text"],
+  [class*="__text "] {
     text-align: center;
+    margin: 0 1.5rem;
+    /* 両端の余白を調整 */
   }
 
-  section{
-    margin: 0;
-    }
 
-    [class$="__text"],
-    [class*="__text "]{
-     text-align: center;
-     margin:0 3rem;
-    }
-
-    .conA{
-      width: 100%;
-    }
-
-    .conA__text{
-      top: 50%;
-    height: 9%;
-    margin: 0;
+  /* ----------------------------------------- */
+  /* ヒーローセクション (conA) - スマホ調整 */
+  /* ----------------------------------------- */
+  .conA__text {
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
-    text-align: left;
-    }
-
-    .conA__title{
-      font-size: 60px;
-      line-height: 1;
-    }
-
-    .conA__subtitle{
-      position: absolute;
-      top:0;
-      font-size: 14px;
-      letter-spacing: 0.1em;
-    }
-
-    .conA__title,
-    .conA__subtitle{
-      width: 100%;
-    }
-
-    .conB br {
-      display: none;
-    }
-
-    .conB__icon,
-    .conB__title,
-    .conB__subtitle{
-      margin: 0;
-    }
-
-    .conB__subtitle{
-      margin-top: -1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .sns{
-
-      margin-bottom: 3rem;
-    }
-
-    .conC, .conC__box {
-      height: 900px;
-    } 
-
-    .conC__box{
-      display: block;
-    }
-
-    [class^="photo"], [class*=" photo"] {
-      min-height: 300px;
-      width: 100%;
-      margin: 3rem 0;
-      background-position:center center;
+    padding: 0 2rem;
+    text-align: center;
+    /* 中央揃えで見やすく */
   }
 
+  .conA__title {
+    font-size: 3.5rem;
+    /* 画面に収まるサイズ */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    /* 改行させない */
+  }
+
+  .conA__subtitle {
+    position: static;
+    /* 絶対配置を解除 */
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    display: block;
+    margin-top: 0.5rem;
+    white-space: normal;
+    /* 必要なら改行 */
+  }
+
+
+  /* ----------------------------------------- */
+  /* プロフィール (conB) - スマホ調整 */
+  /* ----------------------------------------- */
+  .conB br {
+    display: none;
+  }
+
+  .conB__title {
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .conB__subtitle {
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sns {
+    margin-bottom: 3rem;
+  }
+
+
+  /* ----------------------------------------- */
+  /* カードセクション (conC) - スマホ調整 */
+  /* ----------------------------------------- */
+  .conC,
+  .conC__box {
+    height: auto;
+    /* 高さは自動調整 */
+    min-height: auto;
+  }
+
+  .conC__box {
+    display: flex;
+    flex-direction: column;
+    /* 縦並び */
+  }
+
+  /* 写真エリア */
+  [class^="photo"],
+  [class*=" photo"] {
+    width: 100%;
+    min-height: 250px;
+    /* 高さを確保 */
+    margin: 0;
+  }
+
+  /* テキストエリア */
+  .conC__text {
+    padding: 3rem 2rem;
+  }
+
+
+  /* ----------------------------------------- */
+  /* ニュース (News) - スマホ調整 */
+  /* ----------------------------------------- */
   #top-info th,
   #top-info td {
     display: block;
     width: 100%;
-    border-bottom:none;
-    margin: 0 auto;
+    text-align: center;
+    padding-right: 0;
   }
-
 }
-
-/* PC */
-@media (min-width:768px) {
-
-    .conA p br {
-      display: none;
-    }
-
-}
-  
-
-
-
-
-
-
-    

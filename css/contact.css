@@ -1,5 +1,4 @@
-
-#CONTACT{
+#CONTACT {
   margin-top: 25px;
 }
 
@@ -8,111 +7,117 @@ a.anchor {
 }
 
 .conE {
-  padding-top:5rem;
+  padding-top: 5rem;
   padding-bottom: 5rem;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .conE .container {
-  max-width:500px;
   max-width: var(--small-width);
-  margin:0 auto;
-  border-radius:6px;
-  background-color:#f2f2f2;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 4rem 2rem;
 }
 
-.conE .frm{
-  padding-top: 6rem;
-  padding-bottom: 8rem;
-  width: fit-content;
+.conE .frm {
   margin: auto;
-  text-align: center;
-  width: 80%;
-  padding-right: 2rem;
-}
-
-.conE .msg{
-  height:10rem;
-  resize: vertical;
-  max-width: 992px;
-  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, 
-    ".SFNSDisplay-Regular", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-    Helvetica, "游ゴシック Medium", meiryo, sans-serif;
+  text-align: left;
+  width: 100%;
+  max-width: 450px;
 }
 
 .conE p {
-  font-size: 1rem;
-  color: var(--main-color);
-  margin-left: 2rem;
+  font-size: 0.95rem;
+  color: var(--light-main-color);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-.conE .text {
-  text-align: left;
+.conE .en {
+  font-size: 0.8rem;
+  color: var(--gray-main-color);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
 }
 
-.en {
-  letter-spacing: 0.14rem;
-}
-
-input, textarea {
-  outline:none;
-  color: var(--dark-main-color);
-
-  padding: 1rem;
-  margin-bottom:3rem;
-
-  border: none;
-  background:var(--light-main-color);
-
-  border-radius: 5px;
-
+input,
+textarea {
+  outline: none;
+  color: var(--light-main-color);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #f2f2f7;
+  /* Light Gray */
+  border-radius: 12px;
   width: 100%;
-  max-width: 600px;
-  max-width: var(--main-color);
-
-
-  letter-spacing: 0.3rem;
-  font-size: clamp(16px, 1vw, 24px);
+  display: block;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.btn{
-  color: #fff;
-  color: var(--icon-color);
-  background-color: var(--accent-color);
+input:focus,
+textarea:focus {
+  background: #ffffff;
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 4px var(--main-transparent-color);
+}
 
-  font-size: clamp(16px, 1vw, 24px);
-  letter-spacing: 0.3rem;
+.conE .msg {
+  height: 12rem;
+  resize: vertical;
+}
 
-  border-radius:4rem;
-
-  margin-top:15px;
-  margin-bottom:25px;
-  padding: 30px;
-  margin-left: 2rem;
-  
-  width: 50%;
-  max-width: 300px;
-
+.btn {
+  color: #1D1D1F;
+  background-color: var(--main-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: 1.2rem;
+  width: 100%;
   border: none;
-  transition: .5s;
-  display: inline-block;
+  transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+  text-align: center;
 }
 
-input:first-of-type{
-  margin-top:35px;
+.btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 204, 0, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .send[disabled] {
   background-color: var(--gray-main-color);
+  opacity: 0.5;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 ::placeholder {
-  color: var(--accent-color);
+  color: #8e8e93;
 }
 
-label{
-  margin-right: auto;
-  }
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light-main-color);
+}
