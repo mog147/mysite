@@ -45,6 +45,7 @@ p {
   letter-spacing: 0.03rem;
   line-height: 1.8;
   color: var(--dark-transparent-color7);
+  font-size: small;
 }
 
 li {
@@ -331,6 +332,11 @@ header {
 
 .jp {
   margin-bottom: 3rem;
+  font-size: small;
+}
+
+.en {
+  font-size: small;
 }
 
 
