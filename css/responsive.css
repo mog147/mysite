@@ -1,13 +1,17 @@
 :root {
-  /* Modern Yellow Palette */
-  --main-color: #FFCC00;
-  /* Vibrant Modern Yellow */
-  --main-transparent-color: rgba(255, 204, 0, 0.2);
+  /* Sophisticated Indigo Palette */
+  --main-color: #6366F1;
+  /* Vibrant Modern Indigo */
+  --main-transparent-color: rgba(99, 102, 241, 0.15);
 
-  /* Interaction/Secondary */
-  --accent-color: #FFD60A;
-  /* Brighter accent yellow */
-  --accent-transparent-color: rgba(255, 214, 10, 0.2);
+  /* Interaction/Secondary - Deeper Indigo */
+  --accent-color: #4F46E5;
+  /* Brighter interaction indigo */
+  --accent-transparent-color: rgba(79, 70, 229, 0.2);
+
+  /* Premium Gradient - Designer Sense */
+  --main-gradient: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+  --accent-gradient: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
 
   /* Body Background: Apple System Gray 6 */
   --accent-color2: #F5F5F7;

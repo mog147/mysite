@@ -124,6 +124,10 @@
   font-weight: 500;
 }
 
+.conB__text p {
+  margin-bottom: 2rem;
+}
+
 .conB__icon {
   display: inline-block;
   width: 120px;
@@ -167,11 +171,11 @@
 }
 
 .sns__item a:hover {
-  background: var(--main-color);
-  color: #1D1D1F;
-  /* Dark text for yellow contrast */
+  background: var(--accent-gradient);
+  color: #FFFFFF;
+  /* White text for gradient contrast */
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(255, 204, 0, 0.4);
+  box-shadow: 0 8px 16px rgba(147, 51, 234, 0.3);
 }
 
 /* 作品を見るボタンのデザインは共通化のため base.css へ移動いたしました */

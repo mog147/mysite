@@ -208,6 +208,7 @@ header {
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
   padding-left: 4rem;
+  justify-content: center;
 }
 
 /* 矢印アイコン */
@@ -225,7 +226,7 @@ header {
   transition: all 0.3s ease;
 }
 
-/* 黄色の円形背景 (Modern Yellow) */
+/* グラデーションの円形背景 (Modern Gradient) */
 .btnA a::after {
   content: "";
   position: absolute;
@@ -234,11 +235,11 @@ header {
   transform: translateY(-50%);
   width: 3rem;
   height: 3rem;
-  background: var(--main-color);
+  background: var(--main-gradient);
   border-radius: 50%;
   z-index: 4;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
 }
 
 .btnA a span {
@@ -253,16 +254,16 @@ header {
 .btnA a:hover::after {
   width: 100%;
   border-radius: 2rem;
-  background: var(--accent-color);
+  background: var(--accent-gradient);
 }
 
 .btnA a:hover::before {
   left: 1.6rem;
-  border-color: #1D1D1F;
+  border-color: #FFFFFF;
 }
 
 .btnA a:hover span {
-  color: #1D1D1F;
+  color: #FFFFFF;
   margin-left: 0.8rem;
 }
 
