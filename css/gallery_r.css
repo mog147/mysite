@@ -1,57 +1,55 @@
-
 @media (min-width:768px) {
 
-    .conC .container {
-      display: flex;
-      max-width: 1000px;
-      max-width: var(--large-width);
-      margin-left: auto;
-      margin-right: auto;
-    }
+  .conC .container {
+    display: flex;
+    max-width: 1000px;
+    max-width: var(--large-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .conC .photo {
-      flex: 0 0 400px;    
-    }
+  .conC .photo {
+    flex: 0 0 400px;
+  }
 
-    .conC .photo2 {
-      flex: 0 0 400px;
-      }
+  .conC .photo2 {
+    flex: 0 0 400px;
+  }
 
-    .conC .text {
-      flex: 1;
-      padding: 2.5rem;
-    }  
+  .conC .text {
+    flex: 1;
+    padding: 2.5rem;
+  }
 }
-  
-@media (min-width:768px) {
-    .conD .container {
-      display: flex;
-      flex-direction: row-reverse;
-      max-width: 1000px;
-      max-width: var(--large-width);
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 4.5rem;
-      padding-bottom: 4.5rem;
-    }
-  
-    .conD .photo {
-      flex: 0 0 400px;
-    }
 
-  
-    .conD .text {
-      flex: 1;
-      padding: 2.5rem;
-    }
+@media (min-width:768px) {
+  .conD .container {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1000px;
+    max-width: var(--large-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .conD .photo {
+    flex: 0 0 400px;
+  }
+
+
+  .conD .text {
+    flex: 1;
+    padding: 2.5rem;
+  }
 }
 
 @media (max-width: 500px) {
 
-  .conC h2,
-  .conD h2{
-    text-align: center;
+  .conC .text,
+  .conD .text {
+    text-align: left !important;
   }
 
-} 
-
+}

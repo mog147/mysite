@@ -15,7 +15,8 @@
   [class$="__text"],
   [class*="__text "] {
     text-align: center;
-    margin: 0 1.5rem;
+    padding: 0 1.5rem;
+    width: 100%;
     /* 両端の余白を調整 */
   }
 
@@ -24,12 +25,8 @@
   /* ヒーローセクション (conA) - スマホ調整 */
   /* ----------------------------------------- */
   .conA__text {
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     text-align: center;
-    /* 中央揃えで見やすく */
   }
 
   .conA__title {
@@ -37,8 +34,6 @@
     /* 画面に収まるサイズ */
     line-height: 1.1;
     margin-bottom: 1rem;
-    white-space: nowrap;
-    /* 改行させない */
   }
 
   .conA__subtitle {
@@ -57,8 +52,16 @@
   /* ----------------------------------------- */
   /* プロフィール (conB) - スマホ調整 */
   /* ----------------------------------------- */
+  .conB__text {
+    text-align: left !important;
+  }
+
+  .conB .container {
+    padding: 2rem;
+  }
+
   .conB br {
-    display: none;
+    display: none !important;
   }
 
   .conB__title {
@@ -75,10 +78,17 @@
     margin-bottom: 3rem;
   }
 
+  .more_btn {
+    margin-bottom: 2rem;
+  }
 
   /* ----------------------------------------- */
   /* カードセクション (conC) - スマホ調整 */
   /* ----------------------------------------- */
+  .conC br {
+    display: none !important;
+  }
+
   .conC,
   .conC__box {
     height: auto;
@@ -104,6 +114,7 @@
   /* テキストエリア */
   .conC__text {
     padding: 3rem 2rem;
+    text-align: left !important;
   }
 
 
