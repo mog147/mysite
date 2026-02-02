@@ -7,6 +7,7 @@
 }
 
 .conC .container {
+  padding: 4.5rem 0;
 
   /* Glassmorphism */
   background: var(--glass-bg);
@@ -18,7 +19,7 @@
 
   margin-bottom: 4rem;
   text-align: center;
-  /* Center align text */
+  /* Center align */
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -66,8 +67,7 @@
 /* conD */
 
 .conD .container {
-  padding-top: 0;
-  padding-bottom: 3rem;
+  padding: 4.5rem 0;
 
   /* Glassmorphism */
   background: var(--glass-bg);

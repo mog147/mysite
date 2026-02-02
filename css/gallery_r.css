@@ -2,10 +2,10 @@
 
   .conC .container {
     display: flex;
-    max-width: 1000px;
     max-width: var(--large-width);
     margin-left: auto;
     margin-right: auto;
+    padding: 4.5rem 2rem;
   }
 
   .conC .photo {
@@ -26,12 +26,10 @@
   .conD .container {
     display: flex;
     flex-direction: row-reverse;
-    max-width: 1000px;
     max-width: var(--large-width);
     margin-left: auto;
     margin-right: auto;
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding: 4.5rem 2rem;
   }
 
   .conD .photo {
