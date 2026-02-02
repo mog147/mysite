@@ -7,7 +7,6 @@
 }
 
 .conC .container {
-  padding: 3rem;
 
   /* Glassmorphism */
   background: var(--glass-bg);
@@ -29,7 +28,8 @@
 }
 
 .conC .text {
-  padding: 3rem;
+  padding: 2rem;
+  font-size: small;
 }
 
 .conC h2 {
@@ -89,7 +89,8 @@
 }
 
 .conD .text {
-  padding: 3rem;
+  padding: 2rem;
+  font-size: small;
 }
 
 .conD h2 {
