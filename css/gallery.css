@@ -7,7 +7,7 @@
 }
 
 .conC .container {
-  padding: 4.5rem 0;
+  padding: 4.5rem 2rem;
 
   /* Glassmorphism */
   background: var(--glass-bg);
@@ -67,7 +67,7 @@
 /* conD */
 
 .conD .container {
-  padding: 4.5rem 0;
+  padding: 4.5rem 2rem;
 
   /* Glassmorphism */
   background: var(--glass-bg);
