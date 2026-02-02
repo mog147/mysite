@@ -1,11 +1,9 @@
 @media (min-width:768px) {
 
   .conC .container {
-    display: flex;
     max-width: var(--large-width);
     margin-left: auto;
     margin-right: auto;
-    padding: 4.5rem 2rem;
   }
 
   .conC .photo {
@@ -24,12 +22,10 @@
 
 @media (min-width:768px) {
   .conD .container {
-    display: flex;
     flex-direction: row-reverse;
     max-width: var(--large-width);
     margin-left: auto;
     margin-right: auto;
-    padding: 4.5rem 2rem;
   }
 
   .conD .photo {
@@ -48,6 +44,15 @@
   .conC .text,
   .conD .text {
     text-align: left !important;
+  }
+
+}
+
+@media (min-width: 768px) {
+
+  .conC .container,
+  .conD .container {
+    padding: 4.5rem 0;
   }
 
 }
