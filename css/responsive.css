@@ -75,7 +75,9 @@
     display: block !important;
   }
 
+
   .headB ul {
+    margin-top: 0px;
     display: flex;
   }
 
@@ -99,19 +101,15 @@
   }
 
   .headB ul {
-    margin-top: 0;
-    padding-bottom: 1rem;
-
+    padding: 1rem;
+    width: fit-content;
+    margin-left: auto;
   }
 
   .headB li {
     padding: 0;
   }
 
-  .headB a {
-    font-size: 1rem;
-    margin-top: auto;
-  }
 
   .headC {
     margin-top: 0.3rem;
@@ -192,10 +190,6 @@
     width: 100%;
   }
 
-  .conC__title {
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem;
-  }
 
   .conC p {
     font-size: 0.9rem;
@@ -235,9 +229,6 @@
     font-size: 1.5rem !important;
   }
 
-  p {
-    font-size: 0.9rem !important;
-  }
 }
 
 /* pc (min-width: 768px) */

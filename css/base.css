@@ -36,12 +36,19 @@ section {
 
 h1,
 h2 {
-  letter-spacing: 0.05rem;
-  line-height: 1.5;
-  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  /* 極細フォントでミニマルに */
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  font-size: 8rem;
+  color: var(--light-main-color);
+  opacity: 0.9;
 }
 
 p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.03rem;
   line-height: 1.8;
   color: var(--dark-transparent-color7);
@@ -53,6 +60,7 @@ li {
 }
 
 a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -170,20 +178,10 @@ header {
   position: fixed;
 }
 
-.headB ul {
-  margin-right: 2rem;
-  padding: 0;
-  list-style: none;
-
-  /* menu右寄せ */
-  text-align: right;
-}
-
 /* プロフィールセクションの「MORE...」リンク */
 .more_btn {
   display: inline-block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem;
   color: var(--main-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
@@ -282,15 +280,8 @@ header {
 }
 
 .headB a {
-  display: block;
   padding: 15px;
   color: var(--gray-main-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  text-decoration: none;
-  letter-spacing: 0.05rem;
-  transition: color 0.3s ease;
 }
 
 .headB a:hover {
@@ -302,41 +293,18 @@ header {
 /* title */
 
 .title {
-  font-weight: normal;
   letter-spacing: 0.3rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  color: var(--light-main-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 .sub_title {
-  font-weight: normal;
   letter-spacing: 0.3rem;
   margin-bottom: 3rem;
-  text-align: center;
   color: var(--main-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
-  font-size: 1.5rem;
-  letter-spacing: 0.3rem;
-
-  margin-bottom: 3rem;
-  text-decoration: none;
-
+  font-size: 1rem;
 }
 
 .jp {
   margin-bottom: 3rem;
-  font-size: small;
-}
-
-.en {
-  font-size: small;
 }
 
 

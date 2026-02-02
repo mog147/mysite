@@ -32,13 +32,9 @@
 }
 
 .conC h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
   color: var(--main-color);
   font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-  font-family: -apple-system, sans-serif;
+  letter-spacing: 0.5rem;
 }
 
 .conC p {
@@ -92,13 +88,9 @@
 }
 
 .conD h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
   color: var(--main-color);
   font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-  font-family: -apple-system, sans-serif;
+  letter-spacing: 0.5rem;
 }
 
 .conD p {
