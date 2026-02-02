@@ -20,6 +20,12 @@
   margin-bottom: 4rem;
   text-align: center;
   /* Center align text */
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.conC .container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .conC .text {
@@ -79,6 +85,7 @@
   margin-bottom: 4rem;
   text-align: center;
   /* Center align */
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .conD .text {
@@ -114,4 +121,9 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 24px 24px 0 0;
+}
+
+.conD .container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
