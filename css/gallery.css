@@ -7,7 +7,7 @@
 }
 
 .conC .container {
-  padding-bottom: 3rem;
+  padding: 3rem;
 
   /* Glassmorphism */
   background: var(--glass-bg);
