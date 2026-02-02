@@ -8,45 +8,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Navigation & Dropdown
   // -------------------------
-  const initNavigation = () => {
+  const hasChildLinks = document.querySelectorAll(".has-child > a");
+  const headC = document.querySelector('.headC');
+  const headB = document.querySelector('.headB');
+
+  const handleNavigation = () => {
     const width = window.innerWidth;
-    const hasChildLinks = document.querySelectorAll(".has-child > a");
-    const headC = document.querySelector('.headC');
-    const headB = document.querySelector('.headB');
 
-    // Reset behaviors
-    $(hasChildLinks).off('click');
-    $('.headC').off('click');
-
+    // Reset behaviors (using delegate or simple check is better than off/on)
     if (width <= 768) {
-      // Mobile: Accordion Dropdown
-      $(hasChildLinks).on('click', function (e) {
-        e.preventDefault();
-        const parentElem = $(this).parent();
-        $(parentElem).toggleClass('active');
-        $(parentElem).children('ul').stop().slideToggle(300);
-      });
-
-      // Mobile: Hamburger Menu
-      $(headC).on('click', function () {
-        $(headB).slideToggle(300);
-      });
-
+      // Mobile: Hamburger Menu & Accordion is handled via static listeners below
     } else {
-      // Desktop: Hover is handled by CSS
-      $(".has-child").removeClass('active');
-      $('.has-child').children('ul').css("display", "");
-      $(headB).show();
+      // Desktop: Reset mobile-specific styles
+      $(headB).css("display", "");
+      $('.has-child').removeClass('active').children('ul').css("display", "");
     }
   };
 
-  // Initialize & Resize Listener
-  initNavigation();
+  // Static event binding (Run once)
+  $(hasChildLinks).on('click', function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const parentElem = $(this).parent();
+      parentElem.toggleClass('active');
+      parentElem.children('ul').stop().slideToggle(300);
+    }
+  });
+
+  $(headC).on('click', function () {
+    if (window.innerWidth <= 768) {
+      $(headB).slideToggle(300);
+    }
+  });
+
+  // Resize Listener with Debounce
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initNavigation, 200);
-  });
+    resizeTimer = setTimeout(handleNavigation, 200);
+  }, { passive: true });
+
+  handleNavigation();
 
 
   // 2. Header Scroll Effect (Glassmorphism integration)
@@ -55,12 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerTrigger = document.querySelector(".js-wrapper");
 
   if (header && headerTrigger) {
+    let ticking = false;
     window.addEventListener("scroll", () => {
-      const triggerHeight = headerTrigger.offsetHeight;
-      if (window.scrollY > triggerHeight - 30) {
-        header.classList.add("headerColorScroll");
-      } else {
-        header.classList.remove("headerColorScroll");
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const triggerHeight = headerTrigger.offsetHeight;
+          if (window.scrollY > triggerHeight - 30) {
+            header.classList.add("headerColorScroll");
+          } else {
+            header.classList.remove("headerColorScroll");
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     }, { passive: true });
   }
@@ -68,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Scroll Animations (Intersection Observer)
   // --------------------------------------------
-  // Replaces old jQuery scroll events for better performance
   const observerOptions = {
     root: null,
     rootMargin: '0px 0px -100px 0px',
@@ -79,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('fadein_animation_start');
-        observer.unobserve(entry.target); // Run once
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
@@ -100,15 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const newsContent = doc.querySelector('#news-area');
 
         if (newsContent) {
-          // Filter to show only the first 3 items (Title + Date + Content)
           const rows = newsContent.querySelectorAll('tr');
-          // Simple hygiene: limit rows if needed, currently just dumping content
-          // Adjust this selector based on actual external HTML structure if needed
           $(newsArea).html(newsContent.innerHTML);
-
-          // Limit to 1 item (3 elements: th(date), td(cat), td(title) or similar?)
-          // Original code used: $('#top-info th:gt(2),#top-info td:gt(2)').remove();
-          // We replicate that logic safely with jQuery since html() was used
           $('#top-info th:gt(2),#top-info td:gt(2)').remove();
         }
       })
@@ -123,46 +124,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.querySelector('.send');
     const requiredInputs = form.querySelectorAll('input[required]');
 
-    // Disable initially
     if (submitBtn) submitBtn.disabled = true;
 
-    // Add 'required' marker class to labels
     requiredInputs.forEach(input => {
       const label = input.previousElementSibling;
       if (label && label.tagName === 'LABEL') {
         label.classList.add('required');
       }
 
-      // Validation Listener
       input.addEventListener('input', () => {
-        let allFilled = true;
-        requiredInputs.forEach(req => {
-          if (!req.value.trim()) allFilled = false;
-        });
+        let allFilled = [...requiredInputs].every(req => req.value.trim() !== '');
         if (submitBtn) submitBtn.disabled = !allFilled;
       });
     });
 
-    // Global function for Google Form submission iframe/script
     window.postToGoogle = function () {
-      const field1 = $('[name="entry.1564263618"]').val();
-      const field2 = $('[name="entry.292870337"]').val();
-      const field3 = $('[name="entry.1735355409"]').val();
-      const field4 = $('[name="entry.1370003883"]').val();
+      const data = {};
+      form.querySelectorAll('input[name^="entry."]').forEach(input => {
+        data[input.name] = input.value;
+      });
 
       $.ajax({
         url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfYEsQyqY1EzHRB7w8vg46BP_26vIJuk0lQjoJ_G1KD4qYslw/formResponse",
-        data: {
-          "entry.1564263618": field1,
-          "entry.292870337": field2,
-          "entry.1735355409": field3,
-          "entry.1370003883": field4,
-        },
+        data: data,
         type: "POST",
         dataType: "xml",
         statusCode: {
-          0: function () { window.location.href = "success.html"; },
-          200: function () { window.location.href = "success.html"; }
+          0: () => { window.location.href = "success.html"; },
+          200: () => { window.location.href = "success.html"; }
         }
       });
     };
