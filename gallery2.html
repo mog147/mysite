@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pencil drawing | 396 FOLIO</title>
     <link rel="icon" href="img/profile_avatar.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
@@ -34,54 +34,26 @@
     <site-footer></site-footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
+        document.addEventListener('DOMContentLoaded', () => {
             const grid = document.getElementById('gallery-grid');
             const path = grid.dataset.path;
+            const count = 7; // 実際のファイル数に合わせて設定
 
-            const patterns = [
-                i => `${path}/${i}.jpg`,
-                i => `${path}/${i}.JPG`,
-                i => `${path}/${i}.jpeg`,
-                i => `${path}/${i}.png`
-            ];
+            for (let i = 1; i <= count; i++) {
+                const img = document.createElement('img');
+                img.src = `${path}/${i}.jpg`;
+                img.className = 'reveal';
+                img.loading = 'lazy';
+                img.style.width = '100%';
+                img.style.borderRadius = '12px';
+                img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                grid.appendChild(img);
 
-            const checkImage = (url) => {
-                return new Promise(resolve => {
-                    const img = new Image();
-                    img.onload = () => resolve(true);
-                    img.onerror = () => resolve(false);
-                    img.src = url;
-                });
-            };
-
-            const observer = window.revealObserver || { observe: () => { } };
-
-            let consecutiveMisses = 0;
-            for (let i = 1; i <= 50; i++) {
-                let foundAnyPattern = false;
-                for (const getUrl of patterns) {
-                    const url = getUrl(i);
-                    const exists = await checkImage(url);
-
-                    if (exists) {
-                        const img = document.createElement('img');
-                        img.src = url;
-                        img.className = 'reveal';
-                        img.style.width = '100%';
-                        img.style.borderRadius = '12px';
-                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
-                        grid.appendChild(img);
-
-                        setTimeout(() => img.classList.add('active'), 100 * i);
-
-                        observer.observe(img);
-                        foundAnyPattern = true;
-                        consecutiveMisses = 0;
-                        break;
-                    }
+                if (window.revealObserver) {
+                    window.revealObserver.observe(img);
+                } else {
+                    setTimeout(() => img.classList.add('active'), 100 * i);
                 }
-                if (!foundAnyPattern) consecutiveMisses++;
-                if (consecutiveMisses >= 10) break;
             }
         });
     </script>

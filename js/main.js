@@ -4,29 +4,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Sophisticated Staggered Reveal Animations
+  // 1. Sophisticated Staggered Reveal Animations (Mobile Optimized)
   const revealElements = document.querySelectorAll('.reveal');
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    let delay = 0;
-    const staggeredEntries = entries
-      .filter(entry => entry.isIntersecting && !entry.target.classList.contains('active'))
-      .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top ||
-        a.target.getBoundingClientRect().left - b.target.getBoundingClientRect().left);
+  if (!window.IntersectionObserver) {
+    revealElements.forEach(el => el.classList.add('active'));
+    return;
+  }
 
-    staggeredEntries.forEach((entry) => {
-      setTimeout(() => {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 画面内に入ったら即座に、あるいはわずかな遅延で表示
         entry.target.classList.add('active');
-      }, delay);
-      delay += 100; // 0.1秒ずつの心地よいリズム
+        revealObserver.unobserve(entry.target);
+      }
     });
   }, {
     root: null,
-    rootMargin: '0px 0px -80px',
+    rootMargin: '0px 0px -20px', // スマホ向けにマージンを縮小
     threshold: 0.1
   });
 
+  window.revealObserver = revealObserver; // グローバルに公開
   revealElements.forEach(el => revealObserver.observe(el));
+
 
 
   // 2. Optimized News Fetching (Silent Error Handling)

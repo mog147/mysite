@@ -538,13 +538,23 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+    transition: 1.0s cubic-bezier(0.2, 1, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 
 /* --- Mobile Menu & Responsive Refinement --- */
 .mobile-menu-toggle {

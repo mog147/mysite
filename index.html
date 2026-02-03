@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>396 FOLIO | Portfolio of Momoko Tezuka</title>
     <link rel="icon" href="img/profile_avatar.png">
 
@@ -29,7 +29,11 @@
         <!-- Cover Section -->
         <section class="hero">
             <div class="hero-bg">
-                <img src="img/hero_main.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
+                <picture>
+                    <source srcset="img/hero_alternative.jpg" media="(max-width: 850px)">
+                    <img src="img/hero_main.jpg" alt="" style="width:100%; height:100%; object-fit:cover;"
+                        loading="eager">
+                </picture>
             </div>
             <div class="hero-content reveal">
                 <h1>396 FOLIO</h1>
@@ -41,7 +45,7 @@
         <section class="container reveal">
             <div class="glass-card flex-center">
                 <img src="img/profile_avatar.png" alt="Tezuka Momoko"
-                    style="width: 120px; border-radius: 50%; box-shadow: var(--glass-shadow);">
+                    style="width: 120px; border-radius: 50%; box-shadow: var(--glass-shadow);" loading="lazy">
                 <h3>手塚 桃子 <span class="sub-title">TEZUKA MOMOKO</span></h3>
                 <div style="max-width: 650px;">
                     <p style="font-weight: 400; color: var(--color-text-main); margin-bottom: 2.5rem;">
@@ -61,7 +65,7 @@
             <div style="display: grid; gap: 12rem;">
                 <div class="glass-card reveal flex-grid">
                     <div class="gallery-thumb-wrap">
-                        <img src="img/works_design.png" alt="Design">
+                        <img src="img/works_design.png" alt="Design" loading="lazy">
                     </div>
                     <div class="content-block">
                         <h3>Design</h3>
@@ -72,7 +76,7 @@
                 </div>
                 <div class="glass-card reveal flex-grid">
                     <div class="gallery-thumb-wrap">
-                        <img src="img/works_programming.png" alt="Programming">
+                        <img src="img/works_programming.png" alt="Programming" loading="lazy">
                     </div>
                     <div class="content-block">
                         <h3>Programming</h3>
@@ -84,7 +88,7 @@
                 </div>
                 <div class="glass-card reveal flex-grid">
                     <div class="gallery-thumb-wrap">
-                        <img src="img/works_art.png" alt="Art">
+                        <img src="img/works_art.png" alt="Art" loading="lazy">
                     </div>
                     <div class="content-block">
                         <h3>Art</h3>
