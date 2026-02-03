@@ -56,4 +56,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // 4. Global Lightbox (Premium Image Viewer)
+  const createLightbox = () => {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.className = 'lightbox-overlay';
+    lightbox.innerHTML = `
+      <div class="lightbox-close"><i class="fa fa-times"></i></div>
+      <div class="lightbox-content">
+        <img src="" alt="Gallery Image Large">
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+      }, 400);
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
+    return lightbox;
+  };
+
+  const lightbox = createLightbox();
+  const lightboxImg = lightbox.querySelector('img');
+
+  window.openLightbox = (src) => {
+    lightboxImg.src = src;
+    lightbox.style.display = 'flex';
+    setTimeout(() => {
+      lightbox.classList.add('active');
+    }, 10);
+  };
+
+  // Delegate click for gallery images
+  document.addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG' && (e.target.closest('#gallery-grid') || e.target.closest('.gallery-grid'))) {
+      window.openLightbox(e.target.src);
+    }
+  });
+
 });

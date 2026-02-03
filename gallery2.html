@@ -20,21 +20,10 @@
             <h2 class="reveal flex-center">- Pencil drawing -</h2>
             <div class="glass-card reveal">
                 <p style="text-align: center; margin-bottom: 3rem;">鉛筆の柔らかな線。日常の中の感情を切り取ったデッサン集です。</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <img src="img/gallery2/pencil_01.jpg" alt="Pencil Drawing 01" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_02.jpg" alt="Pencil Drawing 02" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_03.jpg" alt="Pencil Drawing 03" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_04.jpg" alt="Pencil Drawing 04" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_05.jpg" alt="Pencil Drawing 05" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_06.jpg" alt="Pencil Drawing 06" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery2/pencil_07.jpg" alt="Pencil Drawing 07" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+
+                <div id="gallery-grid" data-path="img/gallery2"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- JavaScript が自動で作品をここに並べます -->
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 3rem;">
@@ -43,6 +32,59 @@
         </section>
     </main>
     <site-footer></site-footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('gallery-grid');
+            const path = grid.dataset.path;
+
+            const patterns = [
+                i => `${path}/${i}.jpg`,
+                i => `${path}/${i}.JPG`,
+                i => `${path}/${i}.jpeg`,
+                i => `${path}/${i}.png`
+            ];
+
+            const checkImage = (url) => {
+                return new Promise(resolve => {
+                    const img = new Image();
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = url;
+                });
+            };
+
+            const observer = window.revealObserver || { observe: () => { } };
+
+            let consecutiveMisses = 0;
+            for (let i = 1; i <= 50; i++) {
+                let foundAnyPattern = false;
+                for (const getUrl of patterns) {
+                    const url = getUrl(i);
+                    const exists = await checkImage(url);
+
+                    if (exists) {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.className = 'reveal';
+                        img.style.width = '100%';
+                        img.style.borderRadius = '12px';
+                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                        grid.appendChild(img);
+
+                        setTimeout(() => img.classList.add('active'), 100 * i);
+
+                        observer.observe(img);
+                        foundAnyPattern = true;
+                        consecutiveMisses = 0;
+                        break;
+                    }
+                }
+                if (!foundAnyPattern) consecutiveMisses++;
+                if (consecutiveMisses >= 10) break;
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -21,12 +21,9 @@
             <div class="glass-card reveal">
                 <p style="text-align: center; margin-bottom: 3rem;">透明感のある水彩の調べ。繊細なタッチで描かれた作品集です。</p>
 
-                <div id="gallery-grid" class="gallery-auto-grid" data-path="img/gallery1"
+                <div id="gallery-grid" data-path="img/gallery1"
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <!-- JavaScript will populate images here -->
-                    <div class="flex-center" style="grid-column: 1/-1; padding: 3rem; opacity: 0.5;">
-                        <i class="fa fa-spinner fa-spin"></i> 作品を読み込み中...
-                    </div>
+                    <!-- JavaScript が自動で作品をここに並べます -->
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 3rem;">
@@ -41,73 +38,57 @@
             const grid = document.getElementById('gallery-grid');
             const path = grid.dataset.path;
 
-            // Note: Since we cannot list files via simple Client-side JS without a backend/directory listing,
-            // we will use a "brute-force" or "sequential" approach for common patterns, 
-            // OR provide a simple way to maintain a list.
-            // However, your requirement is "just put in the folder". 
-            // For a static site, we'll implement a robust sequential loader.
+            // 数字連番（1.jpg, 2.jpg...）を優先して探す
+            const patterns = [
+                i => `${path}/${i}.jpg`,
+                i => `${path}/${i}.JPG`,
+                i => `${path}/${i}.jpeg`,
+                i => `${path}/${i}.png`
+            ];
 
-            const extensions = ['jpg', 'png', 'jpeg', 'JPG', 'PNG', 'webp'];
-            let foundCount = 0;
-
-            // Clear loading spinner
-            grid.innerHTML = '';
-
-            // This is a common pattern for static sites without server-side listing:
-            // We search for watercolor_01, watercolor_02... or similar.
-            // But to make it truly "just put any file", we would need a file list.
-            // Since this is a local environment, I'll provide a script that 
-            // the user can easily update or I can automate with a "manifest" if needed.
-
-            // For now, I'll implement a logic that tries to fetch images watercolor_01... watercolor_50
-            // and also handles common naming.
-
-            async function tryLoadImage(index) {
-                const num = String(index).padStart(2, '0');
-                const baseName = `watercolor_${num}`;
-
-                for (const ext of extensions) {
-                    const url = `${path}/${baseName}.${ext}`;
-                    try {
-                        const exists = await checkImage(url);
-                        if (exists) {
-                            addImageToGrid(url);
-                            return true;
-                        }
-                    } catch (e) { }
-                }
-                return false;
-            }
-
-            function checkImage(url) {
-                return new Promise((resolve) => {
+            const checkImage = (url) => {
+                return new Promise(resolve => {
                     const img = new Image();
                     img.onload = () => resolve(true);
                     img.onerror = () => resolve(false);
                     img.src = url;
                 });
-            }
+            };
 
-            function addImageToGrid(url) {
-                const img = document.createElement('img');
-                img.src = url;
-                img.className = 'reveal';
-                img.style.width = '100%';
-                img.style.borderRadius = '8px';
-                img.onerror = () => img.style.display = 'none';
-                grid.appendChild(img);
+            const observer = window.revealObserver || { observe: () => { } };
 
-                // Re-trigger reveal animation observer if needed
-                if (window.revealObserver) {
-                    window.revealObserver.observe(img);
-                }
-            }
-
-            // Load up to 50 images
+            let consecutiveMisses = 0;
             for (let i = 1; i <= 50; i++) {
-                const found = await tryLoadImage(i);
-                // If we hit a gap, we might stop, but let's continue a bit to be safe
-                if (!found && i > 15) break;
+                let foundAnyPattern = false;
+                for (const getUrl of patterns) {
+                    const url = getUrl(i);
+                    const exists = await checkImage(url);
+
+                    if (exists) {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.className = 'reveal';
+                        img.style.width = '100%';
+                        img.style.borderRadius = '12px';
+                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                        grid.appendChild(img);
+
+                        // 強制的に再描画・判定を促す
+                        setTimeout(() => img.classList.add('active'), 100 * i);
+
+                        observer.observe(img);
+                        foundAnyPattern = true;
+                        consecutiveMisses = 0;
+                        break;
+                    }
+                }
+
+                if (!foundAnyPattern) {
+                    consecutiveMisses++;
+                }
+
+                // 10回連続で見つからなければ終了
+                if (consecutiveMisses >= 10) break;
             }
         });
     </script>

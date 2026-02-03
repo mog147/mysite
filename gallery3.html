@@ -20,33 +20,10 @@
             <h2 class="reveal flex-center">- Digital art -</h2>
             <div class="glass-card reveal">
                 <p style="text-align: center; margin-bottom: 3rem;">ポップでカラフル。デジタルならではの自由な表現で描かれた作品集です。</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <img src="img/gallery3/digital_apple.jpg" alt="Apple" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_apple_candy.jpg" alt="Apple Candy" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_bread.jpg" alt="Bread" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_daifuku.jpg" alt="Daifuku" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_egg.jpg" alt="Egg" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_cat.jpg" alt="Cat" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_bird.jpg" alt="Bird" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_sheep.jpg" alt="Sheep" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_drmartens.jpg" alt="DrMartens" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_eyes.jpg" alt="Eyes" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_music.jpeg" alt="Music" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_peace.jpeg" alt="Peace" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
-                    <img src="img/gallery3/digital_sunglasses.jpg" alt="Sunglasses" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_design.png'">
+
+                <div id="gallery-grid" data-path="img/gallery3"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- JavaScript が自動で作品をここに並べます -->
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 3rem;">
@@ -55,6 +32,59 @@
         </section>
     </main>
     <site-footer></site-footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('gallery-grid');
+            const path = grid.dataset.path;
+
+            const patterns = [
+                i => `${path}/${i}.jpg`,
+                i => `${path}/${i}.JPG`,
+                i => `${path}/${i}.jpeg`,
+                i => `${path}/${i}.png`
+            ];
+
+            const checkImage = (url) => {
+                return new Promise(resolve => {
+                    const img = new Image();
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = url;
+                });
+            };
+
+            const observer = window.revealObserver || { observe: () => { } };
+
+            let consecutiveMisses = 0;
+            for (let i = 1; i <= 50; i++) {
+                let foundAnyPattern = false;
+                for (const getUrl of patterns) {
+                    const url = getUrl(i);
+                    const exists = await checkImage(url);
+
+                    if (exists) {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.className = 'reveal';
+                        img.style.width = '100%';
+                        img.style.borderRadius = '12px';
+                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                        grid.appendChild(img);
+
+                        setTimeout(() => img.classList.add('active'), 100 * i);
+
+                        observer.observe(img);
+                        foundAnyPattern = true;
+                        consecutiveMisses = 0;
+                        break;
+                    }
+                }
+                if (!foundAnyPattern) consecutiveMisses++;
+                if (consecutiveMisses >= 10) break;
+            }
+        });
+    </script>
 </body>
 
 </html>
