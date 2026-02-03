@@ -99,7 +99,7 @@ section {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.1;
+    opacity: 0.3;
     transform: scale(1);
     animation: heroKenBurns 40s infinite alternate ease-in-out;
 }
@@ -129,6 +129,7 @@ section {
     line-height: 1.1;
     text-transform: uppercase;
     color: var(--color-text-main);
+    text-align: center;
 }
 
 .hero .sub-title {
@@ -139,10 +140,11 @@ section {
     letter-spacing: 0.5em;
     font-weight: 300;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .hero+section {
-    margin-top: 15rem !important;
+    margin-top: 8rem !important;
     /* 絶対的な余白を保証 */
 }
 
