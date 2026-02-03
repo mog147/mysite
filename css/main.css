@@ -63,6 +63,13 @@ body {
 /* --- Layout Architecture --- */
 main {
     padding-top: 40px;
+    min-height: 100vh;
+    /* 万が一コンテンツが空に見えても最小限の高さを確保 */
+}
+
+/* Fallback for browsers not supporting :has() */
+.has-hero {
+    padding-top: 0 !important;
 }
 
 main:has(.hero) {
@@ -545,6 +552,11 @@ footer {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* スマホでの視認性向上のため、ヒーローの最初のアニメーションを少し早める */
+.hero-content.reveal {
+    transition-duration: 0.6s;
 }
 
 @media (prefers-reduced-motion: reduce) {

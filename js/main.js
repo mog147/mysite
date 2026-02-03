@@ -9,25 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!window.IntersectionObserver) {
     revealElements.forEach(el => el.classList.add('active'));
-    return;
-  }
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -50px', // 少しマージンを持たせて早めに発火
+      threshold: 0.01 // 1%でも入ったら発火させる（より確実に）
+    });
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // 画面内に入ったら即座に、あるいはわずかな遅延で表示
-        entry.target.classList.add('active');
-        revealObserver.unobserve(entry.target);
+    window.revealObserver = revealObserver; // グローバルに公開
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+      // 既に画面内にある場合は即座に表示（保険）
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('active');
+        revealObserver.unobserve(el);
       }
     });
-  }, {
-    root: null,
-    rootMargin: '0px 0px -20px', // スマホ向けにマージンを縮小
-    threshold: 0.1
-  });
-
-  window.revealObserver = revealObserver; // グローバルに公開
-  revealElements.forEach(el => revealObserver.observe(el));
+  }
 
 
 
