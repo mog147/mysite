@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GALLERY | 396 FOLIO</title>
-    <link rel="icon" href="img/avatar.png">
+    <link rel="icon" href="img/profile_avatar.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -19,46 +19,149 @@
         <section class="container">
             <h2 class="reveal" style="text-align: center; margin-bottom: 4rem;">- GALLERY -</h2>
 
-            <div style="display: grid; gap: 3rem;">
-                <!-- Water color -->
-                <div id="watercolor" class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/gallery_watercolor.jpg" alt="Water color" onerror="this.src='img/works_art.png'">
-                    </div>
-                    <div class="content-block">
-                        <h3 style="font-size: 1.8rem;">Water color</h3>
-                        <p>繊細な水彩画を得意としています。透明感のあるタッチと柔らかな色使いで、見る人の心に静かな感動を届けられるような作品作りを心がけています。</p>
-                        <a href="gallery1.html" class="btn-more">VIEW GALLERY <i class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div>
+            <!-- Category Description -->
+            <div id="category-info" class="glass-card reveal">
+                <h3 id="category-title">All Works</h3>
+                <p id="category-text">これまでに制作したすべての作品をご覧いただけます。水彩、鉛筆、デジタル、それぞれの表現の追求をお楽しみください。</p>
+            </div>
 
-                <!-- Pencil drawing -->
-                <div id="pencil" class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/gallery_pencil.jpg" alt="Pencil drawing" onerror="this.src='img/works_art.png'">
-                    </div>
-                    <div class="content-block">
-                        <h3 style="font-size: 1.8rem;">Pencil drawing</h3>
-                        <p>子どもやアンニュイな表情の人々を描きます。柔らかなタッチと繊細な色使いで、日常の中にある一瞬の感情を作品に込めています。</p>
-                        <a href="gallery2.html" class="btn-more">VIEW GALLERY <i class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div>
+            <!-- Filter Buttons -->
+            <div class="filter-wrap reveal">
+                <button class="filter-btn active" data-category="all">ALL</button>
+                <button class="filter-btn" data-category="watercolor">WATERCOLOR</button>
+                <button class="filter-btn" data-category="pencil">PENCIL</button>
+                <button class="filter-btn" data-category="digital">DIGITAL</button>
+            </div>
 
-                <!-- Digital art -->
-                <div id="digital" class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/gallery_digital.jpg" alt="Digital art" onerror="this.src='img/works_design.png'">
-                    </div>
-                    <div class="content-block">
-                        <h3 style="font-size: 1.8rem;">Digital art</h3>
-                        <p>iPadを使ってポップでカラフルなイラストを描きます。ビビッドな色使いと楽しいデザインで、見た人が思わず笑顔になるような作品を目指しています。</p>
-                        <a href="gallery3.html" class="btn-more">VIEW GALLERY <i class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div>
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- JavaScript will populate this -->
             </div>
         </section>
     </main>
     <site-footer></site-footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('gallery-grid');
+            const infoTitle = document.getElementById('category-title');
+            const infoText = document.getElementById('category-text');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            const categories = {
+                all: {
+                    title: 'All Works',
+                    text: 'これまでに制作したすべての作品をご覧いただけます。水彩、鉛筆、デジタル、それぞれの表現の追求をお楽しみください。'
+                },
+                watercolor: {
+                    title: 'Water color',
+                    text: '透明感のある水彩の調べ。繊細なタッチと柔らかな色使いで、見る人の心に静かな感動を届けられるような作品集です。'
+                },
+                pencil: {
+                    title: 'Pencil drawing',
+                    text: '鉛筆の柔らかな線。日常の中にある一瞬の感情を切り取った、子どもやアンニュイな表情の人々のデッサン集です。'
+                },
+                digital: {
+                    title: 'Digital art',
+                    text: 'ポップでカラフル。iPadを使ったビビッドな色使いと楽しいデザインで、見た人が思わず笑顔になるような作品集です。'
+                }
+            };
+
+            const imagePaths = {
+                watercolor: 'img/gallery1',
+                pencil: 'img/gallery2',
+                digital: 'img/gallery3'
+            };
+
+            // Smart Loader: Probes folders for images automatically
+            async function loadImages() {
+                const loadPromises = [];
+
+                for (const [cat, path] of Object.entries(imagePaths)) {
+                    // Probe images 1 to 30 for each category
+                    for (let i = 1; i <= 30; i++) {
+                        const p = new Promise(resolve => {
+                            const img = new Image();
+                            const src = `${path}/${i}.jpg`;
+                            img.onload = () => {
+                                const item = document.createElement('div');
+                                item.className = 'gallery-item reveal';
+                                item.dataset.category = cat;
+                                item.innerHTML = `<img src="${src}" alt="${cat} image" loading="lazy">`;
+                                resolve(item);
+                            };
+                            img.onerror = () => resolve(null);
+                            img.src = src;
+                        });
+                        loadPromises.push(p);
+                    }
+                }
+
+                const results = await Promise.all(loadPromises);
+
+                // Sort results to keep categories together if needed, 
+                // or just append as they were found
+                results.forEach(item => {
+                    if (item) {
+                        grid.appendChild(item);
+                        // Connect to global reveal observer if available
+                        if (window.revealObserver) {
+                            window.revealObserver.observe(item);
+                        }
+                    }
+                });
+            }
+
+            // Filtering with smooth transitions
+            function filterGallery(category) {
+                const items = document.querySelectorAll('.gallery-item');
+                const infoCard = document.getElementById('category-info');
+
+                // Update text with fade effect
+                infoCard.style.opacity = '0';
+                infoCard.style.transform = 'translateY(10px)';
+
+                setTimeout(() => {
+                    infoTitle.textContent = categories[category].title;
+                    infoText.textContent = categories[category].text;
+                    infoCard.style.opacity = '1';
+                    infoCard.style.transform = 'translateY(0)';
+                }, 300);
+
+                items.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.classList.remove('hidden');
+                            item.style.transform = 'scale(1)';
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.classList.add('hidden');
+                        item.style.transform = 'scale(0.9)';
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            if (item.classList.contains('hidden')) {
+                                item.style.display = 'none';
+                            }
+                        }, 500);
+                    }
+                });
+            }
+
+            // Initialization
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (btn.classList.contains('active')) return;
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterGallery(btn.dataset.category);
+                });
+            });
+
+            loadImages();
+        });
+    </script>
 </body>
 
 </html>

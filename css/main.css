@@ -732,6 +732,117 @@ body.menu-open {
     }
 }
 
+/* --- Gallery Integrated --- */
+.filter-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.filter-btn {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    padding: 0.6rem 1.8rem;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: white;
+    color: var(--color-text-sub);
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-indigo);
+    color: var(--color-indigo);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--grad-main);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    background: #fff;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Filtering animation */
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#category-info {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    transition: 0.5s ease;
+}
+
+#category-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+#category-text {
+    font-size: 0.95rem;
+    color: var(--color-text-sub);
+}
+
+@media (max-width: 600px) {
+    .filter-btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.75rem;
+    }
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+#gallery-grid img,
+.gallery-grid img {
+    cursor: zoom-in;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#gallery-grid img:hover,
+.gallery-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
 /* --- Lightbox (Premium Image Viewer) --- */
 .lightbox-overlay {
     position: fixed;
@@ -797,21 +908,4 @@ body.menu-open {
     border-radius: 50%;
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.lightbox-close:hover {
-    opacity: 1;
-    transform: rotate(90deg);
-}
-
-#gallery-grid img,
-.gallery-grid img {
-    cursor: zoom-in;
-    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-#gallery-grid img:hover,
-.gallery-grid img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
