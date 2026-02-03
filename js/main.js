@@ -36,10 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(res => res.ok ? res.text() : Promise.reject())
       .then(html => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
-        const content = doc.querySelector('#news-area table');
-        if (content) {
+        const originalTable = doc.querySelector('#news-area table');
+        if (originalTable && newsArea) {
           newsArea.innerHTML = '';
-          newsArea.appendChild(content);
+          const newTable = document.createElement('table');
+          newTable.className = originalTable.className;
+
+          // 直近3つのみ抽出して追加
+          const rows = Array.from(originalTable.querySelectorAll('tr')).slice(0, 3);
+          rows.forEach(row => newTable.appendChild(row.cloneNode(true)));
+
+          newsArea.appendChild(newTable);
         }
       })
       .catch(() => {
