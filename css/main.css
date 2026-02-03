@@ -36,6 +36,14 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* スマホベース: 最小(0.75rem) = 12px */
+}
+
+@media (min-width: 850px) {
+    html {
+        font-size: 18px;
+        /* PCベース: 以前より控えめにし、読みやすさを優先 */
+    }
 }
 
 body {
@@ -142,7 +150,7 @@ section {
 .hero .sub-title {
     font-family: "Outfit", sans-serif;
     color: var(--color-text-sub);
-    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
     margin-top: 2.5rem;
     letter-spacing: 0.5em;
     font-weight: 300;
@@ -166,17 +174,22 @@ h3 {
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin: 4rem 0;
+    margin: 5rem 0;
     text-transform: uppercase;
     color: var(--color-text-main);
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 2rem;
     color: var(--color-text-main);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
 .sub-title {
@@ -356,7 +369,7 @@ h3 {
     margin-top: 2rem;
     font-family: "Outfit", sans-serif;
     font-weight: 400;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-decoration: none;
@@ -387,8 +400,10 @@ h3 {
 }
 
 .btn-more {
+    display: inline-block;
+    margin: 1.5rem 0;
     font-family: "Outfit", sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--color-indigo);
     letter-spacing: 0.2em;
     text-decoration: none;
@@ -421,7 +436,7 @@ header.scrolled {
 
 .logo {
     font-family: "Outfit", sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 0.2em;
     text-decoration: none;
@@ -442,13 +457,11 @@ header.scrolled {
     padding: 0;
 }
 
-.nav-item {
-    position: relative;
-}
+
 
 .nav-list a {
     font-family: "Outfit", sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.15em;
     color: var(--color-text-sub);
     text-decoration: none;
@@ -459,44 +472,7 @@ header.scrolled {
     color: var(--color-indigo);
 }
 
-/* Dropdown Menu */
-.dropdown {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
-    padding: 1rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    min-width: 15rem;
-    list-style: none;
-    z-index: 1001;
-}
 
-.dropdown li {
-    margin-bottom: 0.8rem;
-}
-
-.dropdown li:last-child {
-    margin-bottom: 0;
-}
-
-.dropdown a {
-    font-size: 0.62rem;
-    white-space: nowrap;
-    display: block;
-}
-
-.nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
 
 footer {
     padding: 5rem 0 3rem;
@@ -535,7 +511,7 @@ footer {
 
 .footer-copy {
     font-family: "Outfit", sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--color-text-sub);
     letter-spacing: 0.25em;
     text-transform: uppercase;

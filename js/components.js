@@ -18,14 +18,7 @@ class SiteHeader extends HTMLElement {
               <li><a href="index.html#WORKS">WORKS</a></li>
               <li><a href="news.html">NEWS</a></li>
               <li><a href="about.html">ABOUT</a></li>
-              <li class="nav-item">
-                <a href="gallery.html">GALLERY</a>
-                <ul class="dropdown">
-                  <li><a href="gallery.html#watercolor">Watercolor</a></li>
-                  <li><a href="gallery.html#pencil">Pencil Drawing</a></li>
-                  <li><a href="gallery.html#digital">Digital Art</a></li>
-                </ul>
-              </li>
+              <li><a href="gallery.html">GALLERY</a></li>
               <li><a href="contact.html">CONTACT</a></li>
             </ul>
           </nav>
