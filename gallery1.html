@@ -21,29 +21,12 @@
             <div class="glass-card reveal">
                 <p style="text-align: center; margin-bottom: 3rem;">透明感のある水彩の調べ。繊細なタッチで描かれた作品集です。</p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <img src="img/gallery1/watercolor_01.jpg" alt="Watercolor Work 01" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_02.jpg" alt="Watercolor Work 02" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_03.jpg" alt="Watercolor Work 03" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_04.jpg" alt="Watercolor Work 04" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_05.jpg" alt="Watercolor Work 05" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_06.jpg" alt="Watercolor Work 06" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_07.jpg" alt="Watercolor Work 07" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_08.jpg" alt="Watercolor Work 08" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_09.jpg" alt="Watercolor Work 09" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_10.jpg" alt="Watercolor Work 10" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
-                    <img src="img/gallery1/watercolor_11.jpg" alt="Watercolor Work 11" class="reveal"
-                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                <div id="gallery-grid" class="gallery-auto-grid" data-path="img/gallery1"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- JavaScript will populate images here -->
+                    <div class="flex-center" style="grid-column: 1/-1; padding: 3rem; opacity: 0.5;">
+                        <i class="fa fa-spinner fa-spin"></i> 作品を読み込み中...
+                    </div>
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 3rem;">
@@ -52,6 +35,82 @@
         </section>
     </main>
     <site-footer></site-footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('gallery-grid');
+            const path = grid.dataset.path;
+
+            // Note: Since we cannot list files via simple Client-side JS without a backend/directory listing,
+            // we will use a "brute-force" or "sequential" approach for common patterns, 
+            // OR provide a simple way to maintain a list.
+            // However, your requirement is "just put in the folder". 
+            // For a static site, we'll implement a robust sequential loader.
+
+            const extensions = ['jpg', 'png', 'jpeg', 'JPG', 'PNG', 'webp'];
+            let foundCount = 0;
+
+            // Clear loading spinner
+            grid.innerHTML = '';
+
+            // This is a common pattern for static sites without server-side listing:
+            // We search for watercolor_01, watercolor_02... or similar.
+            // But to make it truly "just put any file", we would need a file list.
+            // Since this is a local environment, I'll provide a script that 
+            // the user can easily update or I can automate with a "manifest" if needed.
+
+            // For now, I'll implement a logic that tries to fetch images watercolor_01... watercolor_50
+            // and also handles common naming.
+
+            async function tryLoadImage(index) {
+                const num = String(index).padStart(2, '0');
+                const baseName = `watercolor_${num}`;
+
+                for (const ext of extensions) {
+                    const url = `${path}/${baseName}.${ext}`;
+                    try {
+                        const exists = await checkImage(url);
+                        if (exists) {
+                            addImageToGrid(url);
+                            return true;
+                        }
+                    } catch (e) { }
+                }
+                return false;
+            }
+
+            function checkImage(url) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = url;
+                });
+            }
+
+            function addImageToGrid(url) {
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = 'reveal';
+                img.style.width = '100%';
+                img.style.borderRadius = '8px';
+                img.onerror = () => img.style.display = 'none';
+                grid.appendChild(img);
+
+                // Re-trigger reveal animation observer if needed
+                if (window.revealObserver) {
+                    window.revealObserver.observe(img);
+                }
+            }
+
+            // Load up to 50 images
+            for (let i = 1; i <= 50; i++) {
+                const found = await tryLoadImage(i);
+                // If we hit a gap, we might stop, but let's continue a bit to be safe
+                if (!found && i > 15) break;
+            }
+        });
+    </script>
 </body>
 
 </html>
