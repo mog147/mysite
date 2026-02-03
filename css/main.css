@@ -213,7 +213,6 @@ p {
 }
 
 .glass-card:hover {
-    transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
 }
 
@@ -245,6 +244,27 @@ p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     background: white;
     flex-shrink: 0;
+    transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.avatar-wrap {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.044);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover .gallery-thumb-wrap,
+.glass-card:hover .avatar-wrap {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 .gallery-thumb-wrap img {
