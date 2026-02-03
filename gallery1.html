@@ -2,394 +2,56 @@
 <html lang="ja">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <!-- レスポンシブデザインに必須 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <title>396 FOLIO</title>
-    <link rel="icon" href="img/avatar.png">
-
-    <!-- css -->
+    <title>Water color | 396 FOLIO</title>
+    <link rel="icon" href="img/profile_avatar.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-    <!-- jquery -->
-    <script src="https://kit.fontawesome.com/96078d8661.js" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-    <link rel="stylesheet" type="text/css" href="css/gallery1.css">
-    <link rel="stylesheet" type="text/css" href="css/gallery_r1.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-
-    <style>
-        .st-only {
-            position: absolute;
-            width: 1;
-            height: 1;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-    </style>
-
-    <script>
-        (function (d) {
-            var config = {
-                kitId: 'bju5ppq',
-                scriptTimeout: 3000,
-                async: true
-            },
-                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script>
-
-    <!-- プレビューに必要なもの</head>の真上 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer
-        type="text/javascript"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
-<body class="nohero">
+<body>
+    <site-header></site-header>
+    <main>
+        <section class="container">
+            <h2 class="reveal flex-center">- Water color -</h2>
+            <div class="glass-card reveal">
+                <p style="text-align: center; margin-bottom: 3rem;">透明感のある水彩の調べ。繊細なタッチで描かれた作品集です。</p>
 
-    <div id="cursor" class="cursor"></div>
-
-    <div>
-
-        <header class="head-fixed js-header">
-            <div class="container">
-
-                <div class="container-small">
-
-                    <a href="index.html" class="headA"></a>
-
-                    <button type="button" class="headC"><span class="fa fa-bars" title=""></span>
-                    </button>
-
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <img src="img/gallery1/watercolor_01.jpg" alt="Watercolor Work 01" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_02.jpg" alt="Watercolor Work 02" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_03.jpg" alt="Watercolor Work 03" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_04.jpg" alt="Watercolor Work 04" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_05.jpg" alt="Watercolor Work 05" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_06.jpg" alt="Watercolor Work 06" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_07.jpg" alt="Watercolor Work 07" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_08.jpg" alt="Watercolor Work 08" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_09.jpg" alt="Watercolor Work 09" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_10.jpg" alt="Watercolor Work 10" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
+                    <img src="img/gallery1/watercolor_11.jpg" alt="Watercolor Work 11" class="reveal"
+                        style="width: 100%; border-radius: 8px;" onerror="this.src='img/works_art.png'">
                 </div>
-
-                <nav class="headB">
-
-                    <ul>
-                        <li><a href="index.html">TOP</a></li>
-                        <li><a href="index.html#WORKS">WORKS</a></li>
-                        <li><a href="news.html">NEWS</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li class="has-child"><a href="gallery.html">GALLERY</a><!--子要素を持つ li にはhas-childというクラス名をつける-->
-                            <ul>
-                                <li><a href="gallery.html">GALLERY Top</a></li>
-                                <li><a href="#">Water color</a></li>
-                                <li><a href="gallery2.html">Pencil drawing</a></li>
-                                <li><a href="gallery3.html">Digital art</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
-                    </ul>
-
-                </nav>
-
             </div>
-        </header>
-
-        <article>
-            <div class="container">
-
-                <div class="bread js-wrapper">
-                    <ol>
-                        <li><a href="index.html">TOP</a></li>
-                        <li><a href="gallery.html">GALLERY</a></li>
-                    </ol>
-
-                </div>
-
-            </div>
-        </article>
-
-
-        <div class="sub_menu">
-            <h2 class="title anchor">Water color</h2>
-        </div>
-
-        <section class="listC">
-            <h1 class="sr-only"></h1>
-
-            <div class="container flex fluffy">
-
-                <article>
-
-                    <a href="gallery1/IMG_3700.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3700.jpg);">
-                        </div>
-
-                        <div class="text">
-
-                            <h2>ハルノヒ</h2>
-                            <p>透明水彩 F0</p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3701.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3701.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>とろっ。</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3702.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3702.jpg);">
-                        </div>
-
-                        <div class="text">
-
-                            <h2>混ざり合う時</h2>
-                            <p>透明水彩 F0</p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3703.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3703.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>積み重なるしあわせ</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3704.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3704.jpg);">
-                        </div>
-
-                        <div class="text">
-
-                            <h2>ひかり</h2>
-                            <p>透明水彩 F0</p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3705.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3705.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>ひかり2</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3706.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3706.jpg);">
-                        </div>
-
-                        <div class="text">
-
-                            <h2>好奇心</h2>
-                            <p>透明水彩 F0</p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3707.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3707.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>夢の中</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3708.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3708.jpg);">
-                        </div>
-
-                        <div class="text">
-
-                            <h2>味見。</h2>
-                            <p>透明水彩 F0</p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3709.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3709.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>きのこ</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-
-                    </a>
-
-                </article>
-
-                <article>
-
-                    <a href="gallery1/IMG_3710.jpg" data-lightbox="group" data-title="お絵かき">
-
-                        <div class="photo" style="background-image:url(gallery1/IMG_3710.jpg);">
-                        </div>
-
-                        <div class="text">
-                            <h2>Whale</h2>
-                            <p>透明水彩 F0</p>
-                        </div>
-
-                    </a>
-
-                </article>
-
+            <div class="flex-center" style="margin-top: 3rem;">
+                <a href="gallery.html" class="btn-more"><i class="fa fa-chevron-left"></i> BACK TO GALLERY</a>
             </div>
         </section>
-
-        <div class="footer">
-
-            <div class="container">
-
-                <div class="footA">
-
-                    <h2>396 FOLIO</h2>
-                    <p>momoko.tz0402@gmail.com</p>
-                    <P><a href="https://momoko0402.web.fc2.com">https://momoko0402.web.fc2.com</a></P>
-
-                    <nav class="footD">
-                        <ul>
-                            <li><a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank">
-                                    <span class="fa-brands fa-square-threads" title="threads">
-                                    </span>
-                                </a></li>
-
-                            <li><a href="https://www.instagram.com/mogmog_atelier/" target="_blank">
-                                    <span class="fa-brands fa-instagram" title="instagram">
-                                    </span>
-                                </a></li>
-
-                            <li><a href="https://note.com/mog_0147/" target="_blank" target="_blank">
-                                    <span class="fa-regular fa-note-sticky" title="note">
-                                    </span>
-                                </a></li>
-
-                        </ul>
-                    </nav>
-
-                </div>
-
-                <nav class="footB">
-                    <div>
-
-                        <ul>
-                            <li><a href="index.html">TOP</a></li>
-                            <li><a href="index.html#WORKS">WORKS</a></li>
-                            <li><a href="news.html">NEWS</a></li>
-                            <li><a href="about.html">ABOUT</a></li>
-                        </ul>
-
-                    </div>
-                    <div>
-
-                        <ul>
-
-                            <li><a href="#">GALLERY</a></li>
-                            <li><a href="contact.html">CONTACT</a></li>
-                            <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
-                        </ul>
-
-                    </div>
-
-                </nav>
-
-                <div class="footC">
-                    © MOMOKO TEZUKA
-                </div>
-
-                <div class="footD">
-                    <div id="page_top"><a href="#"></a></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- body 終了タグ直前に jQuery、ProgressBar.js、動きを制御する自作のJS の3つを読み込みます。 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-    <script src="js/main.js"></script>
-
+    </main>
+    <site-footer></site-footer>
 </body>
 
 </html>

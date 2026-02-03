@@ -1,0 +1,710 @@
+/* ----------------------------------------- */
+/* 396 FOLIO - Premium Minimalist Style     */
+/* ----------------------------------------- */
+
+:root {
+    /* Core Colors */
+    --color-indigo: #6366F1;
+    --color-indigo-dark: #4F46E5;
+    --color-purple: #A855F7;
+    --color-bg: #F9FAFC;
+    --color-text-main: #1D1D1F;
+    --color-text-sub: #6E6E73;
+    --color-accent: var(--color-indigo);
+
+    /* Unified Gradient */
+    --grad-main: linear-gradient(135deg, var(--color-indigo) 0%, var(--color-purple) 100%);
+
+    /* Unified Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-blur: blur(25px);
+    --glass-shadow: 0 10px 40px rgba(31, 38, 135, 0.03);
+
+    /* Spacing Grid (Compact & Airy) */
+    --sp-section-top: 8rem;
+    --sp-section-bottom: 6rem;
+    --sp-card-p: 3.5rem 2.5rem;
+    --max-width: 1000px;
+}
+
+/* --- Base Reset --- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Hiragino Kaku Gothic ProN", sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    line-height: 1.8;
+    /* 行間を標準的かつ心地よい1.8へ */
+    letter-spacing: 0.03em;
+    -webkit-font-smoothing: antialiased;
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Layout Architecture --- */
+main {
+    padding-top: 40px;
+}
+
+main:has(.hero) {
+    padding-top: 0;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: var(--sp-section-top) 0 var(--sp-section-bottom);
+}
+
+/* 余白を大幅に圧縮 */
+
+/* Apple-style Light & Minimal Hero */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+    transform: scale(1);
+    animation: heroKenBurns 40s infinite alternate ease-in-out;
+}
+
+@keyframes heroKenBurns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(2.5rem, 12vw, 8rem);
+    font-weight: 100;
+    letter-spacing: 0.3em;
+    margin-right: -0.3em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+}
+
+.hero .sub-title {
+    font-family: "Outfit", sans-serif;
+    color: var(--color-text-sub);
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    margin-top: 2.5rem;
+    letter-spacing: 0.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.hero+section {
+    margin-top: 15rem !important;
+    /* 絶対的な余白を保証 */
+}
+
+/* --- Brand Typography --- */
+h1,
+h2,
+h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 4rem 0;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-main);
+}
+
+.sub-title {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.75rem;
+    color: var(--color-indigo);
+    display: block;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* --- Reusable Components --- */
+.glass-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border-radius: 20px;
+    padding: var(--sp-card-p);
+    transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Content Blocks --- */
+.content-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.gallery-thumb-wrap {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: white;
+    flex-shrink: 0;
+}
+
+.gallery-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 850px) {
+    .content-block {
+        min-width: 100%;
+    }
+
+    .gallery-thumb-wrap {
+        width: 200px;
+        /* スマホでは少し小ぶりにして親しみやすく */
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Data Table (Unified Tone & Manner) --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    transition: background 0.4s ease;
+}
+
+.data-table tr:hover {
+    background: rgba(99, 102, 241, 0.02);
+}
+
+.data-table tr:last-child {
+    border: none;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1.5rem 1rem;
+    text-align: left;
+    vertical-align: baseline;
+}
+
+.data-table th {
+    width: 10rem;
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    color: var(--color-indigo);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.data-table td {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+}
+
+.data-table td a {
+    color: var(--color-indigo);
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.data-table td a:hover {
+    opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+
+    .data-table th,
+    .data-table td {
+        display: block;
+        width: 100%;
+        padding: 0.6rem 1rem;
+    }
+
+    .data-table th {
+        padding-top: 1.5rem;
+        color: var(--color-indigo);
+        font-weight: 500;
+    }
+
+    .data-table td {
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* Skill Icons (Compact) */
+.skill-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.skill-icons img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    filter: grayscale(20%);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-icons img:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.15);
+}
+
+/* --- UI Elements --- */
+.btn-cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.8rem 2rem 0.8rem 4rem;
+    margin-top: 2rem;
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: 0.4s;
+}
+
+.btn-cta::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    background: var(--grad-main);
+    border-radius: 50%;
+    z-index: -1;
+    transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cta:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.btn-cta:hover::after {
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.btn-more {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.8rem;
+    color: var(--color-indigo);
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-more:hover {
+    opacity: 0.6;
+    transform: translateX(3px);
+}
+
+/* --- Header & Footer (Ultra Compact) --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    /* 極限まで短縮 */
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+    padding: 0.3rem 0;
+}
+
+.logo {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    color: var(--color-text-main);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-list a {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--color-text-sub);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-list a:hover {
+    color: var(--color-indigo);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    min-width: 15rem;
+    list-style: none;
+    z-index: 1001;
+}
+
+.dropdown li {
+    margin-bottom: 0.8rem;
+}
+
+.dropdown li:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown a {
+    font-size: 0.62rem;
+    white-space: nowrap;
+    display: block;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+footer {
+    padding: 5rem 0 3rem;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.footer-sns {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-sns a {
+    font-size: 1.4rem;
+    display: inline-block;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.6;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-sns a:hover {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.1);
+}
+
+.footer-copy {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.65rem;
+    color: var(--color-text-sub);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* --- Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Mobile Menu & Responsive Refinement --- */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-text-main);
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 850px) {
+
+    /* Layout Architecture */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    section {
+        padding: 5rem 0;
+    }
+
+    .hero+section {
+        margin-top: 6rem !important;
+        /* スマホでは空間を凝縮しつつも品格を保つ */
+    }
+
+    /* Grid & Card Rhythm */
+    .flex-grid {
+        flex-direction: column;
+        align-items: center;
+        /* コンテンツ自体（画像など）は中央へ */
+        text-align: left;
+        /* 本文の基本は左寄せ */
+        gap: 3.5rem;
+    }
+
+    /* Centers images in works section on mobile */
+    .flex-grid img {
+        margin: 0 auto;
+    }
+
+    /* Introduction Card Typography */
+    .flex-center {
+        text-align: center;
+        /* イントロなどの短い宣言は中央のままで心地よく */
+    }
+
+    .glass-card {
+        padding: 3rem 1.5rem;
+    }
+
+    /* Navigation */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        z-index: 1050;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .nav-list a {
+        font-size: 1.3rem;
+        font-weight: 300;
+        letter-spacing: 0.2em;
+    }
+
+    /* Typography Refinement */
+    .hero h1 {
+        font-size: clamp(3rem, 18vw, 6rem) !important;
+        letter-spacing: 0.2em;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin: 3.5rem 0;
+        text-align: center;
+        /* セクションの顔は常に中央 */
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        text-align: center;
+        /* タイトルはスマホを考慮して中央寄せでリズムを作る */
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        /* 長めの本文は左寄せにして、日本語の美しさを保つ */
+        text-align: left;
+    }
+
+    .flex-center p {
+        text-align: center;
+        /* ただし、明示的に中央揃えを指定された箇所は中央のまま */
+    }
+
+    /* Career/News Table */
+    .data-table th,
+    .data-table td {
+        padding: 1.2rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 4rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem !important;
+    }
+
+    .footer-content {
+        gap: 2rem;
+    }
+
+    .footer-sns {
+        gap: 1.5rem;
+    }
+}

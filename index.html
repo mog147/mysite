@@ -4,324 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
     <title>396 FOLIO | Portfolio of Momoko Tezuka</title>
-    <link rel="icon" href="img/avatar.png">
+    <link rel="icon" href="img/profile_avatar.png">
 
-    <!-- CSSライブラリ（最小限） -->
+    <!-- External assets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- 自作CSS -->
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style_r.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <!-- Sophisticated Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400&family=Inter:wght@200;300;400&display=swap"
+        rel="stylesheet">
 
-    <!-- フォント (Adobe Typekit) -->
-    <script>
-        (function (d) {
-            var config = { kitId: 'bju5ppq', scriptTimeout: 3000, async: true },
-                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout),
-                tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
-            h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true;
-            tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } };
-            s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
-
-    <!-- ヘッダーセクション -->
-    <header class="head-fixed js-header">
-        <div class="container">
-            <!-- モバイル用メニューボタン -->
-            <div class="container-small">
-                <button type="button" class="headC" aria-label="Menu">
-                    <span class="fa fa-bars"></span>
-                </button>
-            </div>
-
-            <!-- ナビゲーション -->
-            <nav class="headB">
-                <ul>
-                    <li><a href="#">TOP</a></li>
-                    <li><a href="#WORKS">WORKS</a></li>
-                    <li><a href="news.html">NEWS</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li class="has-child">
-                        <a href="gallery.html">GALLERY</a>
-                        <ul>
-                            <li><a href="gallery.html">GALLERY Top</a></li>
-                            <li><a href="gallery1.html">Water color</a></li>
-                            <li><a href="gallery2.html">Pencil drawing</a></li>
-                            <li><a href="gallery3.html">Digital art</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                    <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    <site-header></site-header>
     <main>
-        <!-- ヒーローセクション（メインビジュアル） -->
-        <section class="conA">
-            <div class="video">
-                <img class="pc" src="img/top.jpg" alt="Main Visual">
-                <img class="sp" src="img/topB.jpg" alt="Main Visual Mobile">
+        <!-- Cover Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="img/hero_main.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
             </div>
+            <div class="hero-content reveal">
+                <h1>396 FOLIO</h1>
+                <p class="sub-title">Design & Programming & Art & Writing</p>
+            </div>
+        </section>
 
-            <div class="conA__box">
-                <div class="conA__text">
-                    <h1 class="conA__title">396 FOLIO</h1>
-                    <p class="conA__subtitle">Design & Programming & Art & Writing</p>
+        <!-- Introduction Section -->
+        <section class="container reveal">
+            <div class="glass-card flex-center">
+                <img src="img/profile_avatar.png" alt="Tezuka Momoko"
+                    style="width: 120px; border-radius: 50%; box-shadow: var(--glass-shadow);">
+                <h3>手塚 桃子 <span class="sub-title">TEZUKA MOMOKO</span></h3>
+                <div style="max-width: 650px;">
+                    <p style="font-weight: 400; color: var(--color-text-main); margin-bottom: 2.5rem;">
+                        『確かなロジック、時間を愛でる感性』</p>
+                    <p>10年以上のエンジニアキャリアで培った緻密なロジックを土台に、デザインとアートの領域を横断して活動しています。生み出した「余白」を美しく整え、移ろう時を慈しむ表現を追求しています。</p>
+                </div>
+                <div style="margin-top: 4rem;">
+                    <a href="about.html" class="btn-more">LEARN MORE <i class="fa fa-chevron-right"
+                            style="font-size: 0.7rem; margin-left: 0.5rem;"></i></a>
                 </div>
             </div>
         </section>
 
-        <!-- プロフィールセクション -->
-        <section class="conB js-wrapper">
-            <div class="container">
-                <div class="conB__text">
-                    <img class="conB__icon" src="img/avatar.png" alt="Avatar">
-                    <h2 class="conB__title">手塚 桃子</h2>
-                    <p class="conB__subtitle">TEZUKA MOMOKO</p>
-
-                    <div class="jp">
-                        <p>『確かなロジック、時間を愛でる感性』</p>
-
-                        <p>10年以上の社内SEキャリアで培った、緻密な問題解決力。その確かな土台の上に、
-                            <br>デザイナー・アーティストとしての表現を重ねています。
-                        </p>
-
-                        <p>VBAによる効率化で「時間」を生み出し、デザインで「時間」を整え、
-                            <br>アートや執筆を通じて「時間の経過」を慈しむ。
-                            <br>ITサポートからWeb制作、個展活動まで、形は違えどその根底にあるのは、
-                            <br>技術者としての規律と、移ろう時を愛おしむ純粋な情熱です。
-                        </p>
+        <!-- Works Section -->
+        <section id="WORKS" class="container">
+            <h2 class="reveal">- WORKS -</h2>
+            <div style="display: grid; gap: 12rem;">
+                <div class="glass-card reveal flex-grid">
+                    <div class="gallery-thumb-wrap">
+                        <img src="img/works_design.png" alt="Design">
                     </div>
-
-                    <div class="en">
-                        <p>"Logic to solve, Sensibility to endure."</p>
-                        <p>With over 10 years as an IT professional, I bridge the gap between technical precision and
-                            artistic soul.
-                            I create time through efficiency, organize time through design,
-                            and cherish the passage of time through art. My work is a journey of finding
-                            harmony between a disciplined mind and a heart that loves the fleeting beauty of every
-                            moment.
-                        </p>
+                    <div class="content-block">
+                        <h3>Design</h3>
+                        <p class="sub-title" style="margin-bottom: 2rem;">Solving Problems</p>
+                        <p>情報の解像度を高め、使い手にとって心地よい「時間」を整えます。機能美と直感的な心地よさが共存するデザインを提供いたします。</p>
+                        <a href="https://fori.io/momoko-tz0402" target="_blank" class="btn-cta">作品を見る</a>
                     </div>
-
-                    <a class="more_btn" href="about.html#CAREER">
-                        MORE... <span class="fa fa-chevron-right"></span>
-                    </a>
-
-                    <!-- SNSリンク -->
-                    <nav class="sns">
-                        <ul class="sns__list">
-                            <li class="sns__item">
-                                <a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank"
-                                    aria-label="Threads">
-                                    <span class="fa-brands fa-square-threads"></span>
-                                </a>
-                            </li>
-                            <li class="sns__item">
-                                <a href="https://www.instagram.com/mogmog_atelier/" target="_blank"
-                                    aria-label="Instagram">
-                                    <span class="fa-brands fa-instagram"></span>
-                                </a>
-                            </li>
-                            <li class="sns__item">
-                                <a href="https://note.com/mog_0147/" target="_blank" aria-label="Note">
-                                    <span class="fa-regular fa-note-sticky"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
                 </div>
-            </div>
-        </section>
-
-        <!-- ニュースセクション -->
-        <h2 id="NEWS" class="title anchor">- NEWS -</h2>
-
-        <section class="news">
-            <div class="container">
-                <!-- 動的ニュースコンテンツ (JSで読み込み) -->
-                <div id="top-info" class="text"></div>
-
-                <a class="more_btn" href="news.html">
-                    MORE... <span class="fa fa-chevron-right"></span>
-                </a>
-            </div>
-        </section>
-
-        <!-- 実績セクション -->
-        <div class="js-wrapper">
-            <h2 id="WORKS" class="title anchor">- WORKS -</h2>
-        </div>
-
-        <!-- デザイン -->
-        <section class="conC">
-
-            <div class="container">
-
-                <div class="conC__box">
-
-                    <div class="photoA"></div>
-
-                    <div class="conC__text">
-
-                        <h2 class="conC__title">Design</h2>
-                        <p class="sub_title">"Solving Problems"</p>
-
-                        <p>10年のエンジニアキャリアで培った論理的思考を武器に、</p>
-                        <p>情報の解像度を高め、使い手にとって心地よい「時間」を整えます。</p>
-                        <p>複雑な課題をシンプルに解き明かし、</p>
-                        <p>機能美と直感的な心地よさが共存するデザインを追求しています。</p>
-
-                        <div class="btnA">
-                            <a href="https://fori.io/momoko-tz0402" target="_blank">
-                                <span class="text">作品を見る</span>
-                            </a>
-                        </div>
-
+                <div class="glass-card reveal flex-grid" style="flex-direction: row-reverse;">
+                    <div class="gallery-thumb-wrap">
+                        <img src="img/works_programming.png" alt="Programming">
                     </div>
-
+                    <div class="content-block">
+                        <h3>Programming</h3>
+                        <p class="sub-title" style="margin-bottom: 2rem;">Creating Space</p>
+                        <p>VBAを中心とした効率化によって日常の摩擦を消し、創造的な活動のための「余白」を生み出します。</p>
+                        <a href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14"
+                            target="_blank" class="btn-cta">作品を見る</a>
+                    </div>
                 </div>
-
-            </div>
-        </section>
-
-        <!-- プログラミング -->
-        <section class="conC">
-            <div class="container">
-                <div class="conC__box boxB">
-                    <div class="photoB"></div>
-                    <div class="conC__text">
-                        <h2 class="conC__title">Programming</h2>
-                        <p class="sub_title">"Creating Space"</p>
-
-                        <p>VBAを中心とした効率化によって、日常の業務から摩擦を消し、</p>
-                        <p>新たな「時間」を創出します。圧倒的なスピードと正確性を追求するのは、</p>
-                        <p>人がより創造的な活動に没頭するための「余白」を生み出すためです。</p>
-
-                        <div class="btnA">
-                            <a href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14"
-                                target="_blank">
-                                <span class="text">作品を見る</span>
-                            </a>
-                        </div>
+                <div class="glass-card reveal flex-grid">
+                    <div class="gallery-thumb-wrap">
+                        <img src="img/works_art.png" alt="Art">
+                    </div>
+                    <div class="content-block">
+                        <h3>Art</h3>
+                        <p class="sub-title" style="margin-bottom: 2rem;">Embracing Time</p>
+                        <p>移ろう時間をテーマに、言葉にならない感情を視覚的な対話として形にします。</p>
+                        <a href="gallery.html" class="btn-cta">作品を見る</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- アート -->
-        <section class="conC">
-            <div class="container">
-                <div class="conC__box">
-                    <div class="photoC"></div>
-                    <div class="conC__text">
-                        <h2 class="conC__title">Art</h2>
-                        <p class="sub_title">"Embracing Time"</p>
-
-                        <p>効率化や解決とは対極にある、移ろう「時間」をテーマに描いています。</p>
-                        <p>イラストや個展活動を通じ、日常の些細な瞬間に宿る美しさや、</p>
-                        <p>言葉にならない感情を視覚的な対話として形にします。</p>
-
-                        <div class="btnA">
-                            <a href="gallery.html" target="_blank">
-                                <span class="text">作品を見る</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- News Section -->
+        <section class="container reveal">
+            <h2>- NEWS -</h2>
+            <div id="top-info" class="glass-card">
+                <p class="flex-center" style="font-style: italic;">Loading latest updates...</p>
+            </div>
+            <div class="flex-center" style="margin-top: 5rem;">
+                <a href="news.html" class="btn-more">VIEW ALL NEWS <i class="fa fa-chevron-right"
+                        style="font-size: 0.7rem; margin-left: 0.5rem;"></i></a>
             </div>
         </section>
-
-        <!-- ライティング -->
-        <section class="conC">
-            <div class="container">
-                <div class="conC__box boxB">
-                    <div class="photoD"></div>
-                    <div class="conC__text">
-                        <h2 class="conC__title">Writing</h2>
-                        <p class="sub_title">"Deepening Thought"</p>
-
-                        <p>日々の気づきや心に残った体験を、エッセイとして丁寧に綴ります。</p>
-                        <p>過ぎ去っていく時間の中に埋もれてしまいそうな小さな意味を拾い上げ、</p>
-                        <p>言葉として定着させることで、自分自身と世界を再発見するプロセスです。</p>
-
-                        <div class="btnA">
-                            <a href="https://note.com/mog_0147/" target="_blank">
-                                <span class="text">作品を見る</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
-
-    <!-- フッターセクション -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footA">
-                <h2>396 FOLIO</h2>
-                <p>momoko.tz0402@gmail.com</p>
-                <p><a href="https://momoko0402.web.fc2.com">https://momoko0402.web.fc2.com</a></p>
-
-                <nav class="footD">
-                    <ul>
-                        <li><a href="https://www.threads.net/@mogmog_atelier?hl=ja" target="_blank"
-                                aria-label="Threads"><span class="fa-brands fa-square-threads"></span></a></li>
-                        <li><a href="https://www.instagram.com/mogmog_atelier/" target="_blank"
-                                aria-label="Instagram"><span class="fa-brands fa-instagram"></span></a></li>
-                        <li><a href="https://note.com/mog_0147/" target="_blank" aria-label="Note"><span
-                                    class="fa-regular fa-note-sticky"></span></a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <nav class="footB">
-                <div>
-                    <ul>
-                        <li><a href="#">TOP</a></li>
-                        <li><a href="#WORKS">WORKS</a></li>
-                        <li><a href="news.html">NEWS</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li><a href="gallery.html">GALLERY</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="https://suzuri.jp/mogmog_atelier" target="_blank">SHOP</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-            <div class="footC">
-                &copy; MOMOKO TEZUKA
-            </div>
-
-            <div class="footD">
-                <div id="page_top"><a href="#" aria-label="Back to top"></a></div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- スクリプト -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/main.js"></script>
-
+    <site-footer></site-footer>
 </body>
 
 </html>
