@@ -386,7 +386,8 @@ p {
     align-items: center;
     width: fit-content;
     padding: 0.8rem 2rem 0.8rem 4rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    /* ボタンの上の余白を広げ、ゆとりを持たせる */
     font-family: "Outfit", sans-serif;
     font-weight: 400;
     font-size: 0.9rem;
@@ -421,7 +422,7 @@ p {
 
 .btn-more {
     display: inline-block;
-    margin: 1.5rem 0;
+    margin: 2.5rem 0;
     font-family: "Outfit", sans-serif;
     font-size: 0.9rem;
     color: var(--color-indigo);
@@ -738,6 +739,8 @@ body.menu-open {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-top: 4rem;
+    /* カテゴリ説明との間に十分な余白を確保 */
     margin-bottom: 4rem;
 }
 
@@ -843,6 +846,7 @@ body.menu-open {
     transform: scale(1.02);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
+
 /* --- Lightbox (Premium Image Viewer) --- */
 .lightbox-overlay {
     position: fixed;
