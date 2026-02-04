@@ -17,8 +17,8 @@
     <site-header></site-header>
     <main>
         <section class="container">
-            <h2 class="reveal flex-center">- ABOUT -</h2>
-            <div class="glass-card flex-center reveal">
+            <section-title title="ABOUT" center reveal></section-title>
+            <glass-card center reveal>
                 <div class="avatar-wrap">
                     <img src="img/profile_avatar.png" alt="Tezuka Momoko"
                         style="width: 70%; height: 70%; object-fit: contain;" loading="lazy">
@@ -42,39 +42,21 @@
                     <p style="font-weight: 500; margin-bottom: 2rem;">『効率化で時間を作り、デザインで時間を整え、アートで時間を愛でる。』</p>
                     <p>10年以上のエンジニアキャリアを礎に、現在はデザインとアートの領域を横断して活動しています。機能的でありながらも、見る人の心に心地よい「広がり」を生む表現を目指しています。</p>
                 </div>
-            </div>
+            </glass-card>
         </section>
 
-        <section id="CAREER" class="container reveal">
-            <h2 class="flex-center">- CAREER -</h2>
-            <div class="glass-card" style="margin-top: 3rem;">
-                <table class="data-table">
-                    <tr>
-                        <th>2008.04</th>
-                        <td>聖徳大学卒業</td>
-                    </tr>
-                    <tr>
-                        <th>2008.10</th>
-                        <td>KDDI 株式会社 就業</td>
-                    </tr>
-                    <tr>
-                        <th>2016.08</th>
-                        <td>UQ コミュニケーションズ株式会社 就業</td>
-                    </tr>
-                    <tr>
-                        <th>2017.03</th>
-                        <td>一般社団法人日本書籍出版協会 就業</td>
-                    </tr>
-                    <tr>
-                        <th>2021.09</th>
-                        <td>株式会社ＢＡＮＤＡＩ ＳＰＩＲＩＴＳ 就業</td>
-                    </tr>
-                    <tr>
-                        <th>2025.04</th>
-                        <td>FuRyu株式会社 就業</td>
-                    </tr>
-                </table>
-            </div>
+        <section id="CAREER" class="container">
+            <section-title title="CAREER" center reveal></section-title>
+            <glass-card reveal style="margin-top: 3rem;">
+                <info-table data='[
+                    {"date":"2008.04", "text":"聖徳大学卒業"},
+                    {"date":"2008.10", "text":"KDDI 株式会社 就業"},
+                    {"date":"2016.08", "text":"UQ コミュニケーションズ株式会社 就業"},
+                    {"date":"2017.03", "text":"一般社団法人日本書籍出版協会 就業"},
+                    {"date":"2021.09", "text":"株式会社ＢＡＮＤＡＩ ＳＰＩＲＩＴＳ 就業"},
+                    {"date":"2025.04", "text":"FuRyu株式会社 就業"}
+                ]'></info-table>
+            </glass-card>
         </section>
     </main>
     <site-footer></site-footer>

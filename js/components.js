@@ -48,7 +48,6 @@ class SiteHeader extends HTMLElement {
         document.body.classList.toggle('menu-open');
       });
 
-      // Close menu when a link is clicked
       nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           toggle.classList.remove('active');
@@ -79,5 +78,142 @@ class SiteFooter extends HTMLElement {
   }
 }
 
+/**
+ * Section Title Component
+ * <section-title title="WORKS" center reveal></section-title>
+ */
+class SectionTitle extends HTMLElement {
+  connectedCallback() {
+    const title = this.getAttribute('title') || '';
+    const isCenter = this.hasAttribute('center');
+    const isReveal = this.hasAttribute('reveal');
+    const className = `section-title ${isCenter ? 'flex-center' : ''} ${isReveal ? 'reveal' : ''}`;
+
+    this.innerHTML = `<h2 class="${className}">- ${title} -</h2>`;
+
+    if (isReveal && window.revealObserver) {
+      window.revealObserver.observe(this.querySelector('h2'));
+    }
+  }
+}
+
+/**
+ * Glass Card Wrapper
+ * <glass-card reveal grid center>...</glass-card>
+ */
+class GlassCard extends HTMLElement {
+  connectedCallback() {
+    const reveal = this.hasAttribute('reveal') ? 'reveal' : '';
+    const grid = this.hasAttribute('grid') ? 'flex-grid' : '';
+    const center = this.hasAttribute('center') ? 'flex-center' : '';
+    const content = this.innerHTML;
+
+    this.innerHTML = `<div class="glass-card ${reveal} ${grid} ${center}">${content}</div>`;
+
+    if (reveal && window.revealObserver) {
+      window.revealObserver.observe(this.querySelector('.glass-card'));
+    }
+  }
+}
+
+/**
+ * Site Button Component
+ * <site-button href="url" type="more|cta">Label</site-button>
+ */
+class SiteButton extends HTMLElement {
+  connectedCallback() {
+    const href = this.getAttribute('href') || '#';
+    const type = this.getAttribute('type') || 'more'; // 'more' or 'cta'
+    const target = this.getAttribute('target') || '_self';
+    const label = this.textContent;
+
+    if (type === 'more') {
+      this.innerHTML = `
+        <a href="${href}" class="btn-more" target="${target}">
+          ${label} <i class="fa fa-chevron-right" style="font-size: 0.7rem; margin-left: 0.5rem;"></i>
+        </a>
+      `;
+    } else {
+      this.innerHTML = `
+        <a href="${href}" class="btn-cta" target="${target}">${label}</a>
+      `;
+    }
+  }
+}
+
+/**
+ * Work Card Component
+ * <work-card img="src" title="Title" subtitle="Sub" href="url">Description</work-card>
+ */
+class WorkCard extends HTMLElement {
+  connectedCallback() {
+    const img = this.getAttribute('img') || '';
+    const title = this.getAttribute('title') || '';
+    const subtitle = this.getAttribute('subtitle') || '';
+    const href = this.getAttribute('href') || '';
+    const description = this.innerHTML;
+
+    this.innerHTML = `
+      <div class="glass-card reveal flex-grid">
+        <div class="gallery-thumb-wrap">
+          <img src="${img}" alt="${title}" loading="lazy">
+        </div>
+        <div class="content-block">
+          <h3>${title}</h3>
+          <p class="sub-title" style="margin-bottom: 2rem;">${subtitle}</p>
+          <p>${description}</p>
+          <site-button href="${href}" type="cta" target="_blank">作品を見る</site-button>
+        </div>
+      </div>
+    `;
+
+    if (window.revealObserver) {
+      window.revealObserver.observe(this.querySelector('.glass-card'));
+    }
+  }
+}
+
+/**
+ * Info Table Component
+ * <info-table data='[{"date":"2024.1.1", "text":"Content", "link": "url"}]'></info-table>
+ */
+class InfoTable extends HTMLElement {
+  connectedCallback() {
+    const dataStr = this.getAttribute('data');
+    if (!dataStr) return;
+
+    try {
+      const data = JSON.parse(dataStr);
+      let rowsHtml = '';
+
+      data.forEach(item => {
+        const content = item.link
+          ? `<a href="${item.link}" target="_blank">${item.text}</a>`
+          : item.text;
+
+        rowsHtml += `
+          <tr>
+            <th>${item.date}</th>
+            <td>${content}</td>
+          </tr>
+        `;
+      });
+
+      this.innerHTML = `
+        <table class="data-table">
+          ${rowsHtml}
+        </table>
+      `;
+    } catch (e) {
+      console.error('Failed to parse info-table data', e);
+    }
+  }
+}
+
 customElements.define('site-header', SiteHeader);
 customElements.define('site-footer', SiteFooter);
+customElements.define('section-title', SectionTitle);
+customElements.define('glass-card', GlassCard);
+customElements.define('site-button', SiteButton);
+customElements.define('work-card', WorkCard);
+customElements.define('info-table', InfoTable);

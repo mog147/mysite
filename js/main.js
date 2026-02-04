@@ -44,20 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(res => res.ok ? res.text() : Promise.reject())
       .then(html => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
-        const originalTable = doc.querySelector('#news-area table');
-        if (originalTable && newsArea) {
-          newsArea.innerHTML = '';
-          const newTable = document.createElement('table');
-          newTable.className = originalTable.className;
+        const infoTable = doc.querySelector('#news-data');
 
-          // 直近3つのみ抽出して追加
-          const rows = Array.from(originalTable.querySelectorAll('tr')).slice(0, 3);
-          rows.forEach(row => newTable.appendChild(row.cloneNode(true)));
+        if (infoTable && newsArea) {
+          const data = JSON.parse(infoTable.getAttribute('data'));
+          const top3 = data.slice(0, 3);
 
-          newsArea.appendChild(newTable);
+          newsArea.innerHTML = `
+            <info-table data='${JSON.stringify(top3).replace(/'/g, "&apos;")}'></info-table>
+          `;
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('News fetch error:', err);
         newsArea.innerHTML = '<p style="text-align: center;">News data currently unavailable.</p>';
       });
   }

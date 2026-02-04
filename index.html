@@ -42,8 +42,8 @@
         </section>
 
         <!-- Introduction Section -->
-        <section class="container reveal">
-            <div class="glass-card flex-center">
+        <section class="container">
+            <glass-card center reveal>
                 <div class="avatar-wrap">
                     <img src="img/profile_avatar.png" alt="Tezuka Momoko"
                         style="width: 70%; height: 70%; object-fit: contain;" loading="lazy">
@@ -55,62 +55,39 @@
                     <p>10年以上のエンジニアキャリアで培った緻密なロジックを土台に、デザインとアートの領域を横断して活動しています。生み出した「余白」を美しく整え、移ろう時を慈しむ表現を追求しています。</p>
                 </div>
                 <div style="margin-top: 4rem;">
-                    <a href="about.html" class="btn-more">LEARN MORE <i class="fa fa-chevron-right"
-                            style="font-size: 0.7rem; margin-left: 0.5rem;"></i></a>
+                    <site-button href="about.html" type="more">LEARN MORE</site-button>
                 </div>
-            </div>
+            </glass-card>
         </section>
 
         <!-- Works Section -->
         <section id="WORKS" class="container">
-            <h2 class="reveal">- WORKS -</h2>
+            <section-title title="WORKS" reveal></section-title>
             <div style="display: grid; gap: 12rem;">
-                <div class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/works_design.png" alt="Design" loading="lazy">
-                    </div>
-                    <div class="content-block">
-                        <h3>Design</h3>
-                        <p class="sub-title" style="margin-bottom: 2rem;">Solving Problems</p>
-                        <p>情報の解像度を高め、使い手にとって心地よい「時間」を整えます。機能美と直感的な心地よさが共存するデザインを提供いたします。</p>
-                        <a href="https://fori.io/momoko-tz0402" target="_blank" class="btn-cta">作品を見る</a>
-                    </div>
-                </div>
-                <div class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/works_programming.png" alt="Programming" loading="lazy">
-                    </div>
-                    <div class="content-block">
-                        <h3>Programming</h3>
-                        <p class="sub-title" style="margin-bottom: 2rem;">Creating Space</p>
-                        <p>VBAを中心とした効率化によって日常の摩擦を消し、創造的な活動のための「余白」を生み出します。</p>
-                        <a href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14"
-                            target="_blank" class="btn-cta">作品を見る</a>
-                    </div>
-                </div>
-                <div class="glass-card reveal flex-grid">
-                    <div class="gallery-thumb-wrap">
-                        <img src="img/works_art.png" alt="Art" loading="lazy">
-                    </div>
-                    <div class="content-block">
-                        <h3>Art</h3>
-                        <p class="sub-title" style="margin-bottom: 2rem;">Embracing Time</p>
-                        <p>移ろう時間をテーマに、言葉にならない感情を視覚的な対話として形にします。</p>
-                        <a href="gallery.html" class="btn-cta">作品を見る</a>
-                    </div>
-                </div>
+                <work-card img="img/works_design.png" title="Design" subtitle="Solving Problems"
+                    href="https://fori.io/momoko-tz0402">
+                    情報の解像度を高め、使い手にとって心地よい「時間」を整えます。機能美と直感的な心地よさが共存するデザインを提供いたします。
+                </work-card>
+
+                <work-card img="img/works_programming.png" title="Programming" subtitle="Creating Space"
+                    href="https://mog147.notion.site/P-O-R-T-F-O-L-I-O-12dd6051ad4880fda3b4d54fc66dfa14">
+                    VBAを中心とした効率化によって日常の摩擦を消し、創造的な活動のための「余白」を生み出します。
+                </work-card>
+
+                <work-card img="img/works_art.png" title="Art" subtitle="Embracing Time" href="gallery.html">
+                    移ろう時間をテーマに、言葉にならない感情を視覚的な対話として形にします。
+                </work-card>
             </div>
         </section>
 
         <!-- News Section -->
-        <section class="container reveal">
-            <h2>- NEWS -</h2>
-            <div id="top-info" class="glass-card">
+        <section class="container">
+            <section-title title="NEWS" reveal></section-title>
+            <glass-card id="top-info" reveal>
                 <p class="flex-center" style="font-style: italic;">Loading latest updates...</p>
-            </div>
+            </glass-card>
             <div class="flex-center" style="margin-top: 5rem;">
-                <a href="news.html" class="btn-more">VIEW ALL NEWS <i class="fa fa-chevron-right"
-                        style="font-size: 0.7rem; margin-left: 0.5rem;"></i></a>
+                <site-button href="news.html" type="more">VIEW ALL NEWS</site-button>
             </div>
         </section>
     </main>
