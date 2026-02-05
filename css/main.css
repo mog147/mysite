@@ -117,6 +117,26 @@ section {
     opacity: 0.3;
     transform: scale(1);
     animation: heroKenBurns 40s infinite alternate ease-in-out;
+    transition: transform 0.15s ease-out, opacity 1s ease-out;
+    /* マウス追従を滑らかに */
+}
+
+.hero-aura {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero:hover .hero-aura {
+    opacity: 1;
 }
 
 @keyframes heroKenBurns {

@@ -34,6 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  // 2. Interactive Hero Parallax & Aura
+  const hero = document.querySelector('.hero');
+  const aura = document.querySelector('.hero-aura');
+  const heroContent = document.querySelector('.hero-content');
+  const heroBg = document.querySelector('.hero-bg img');
+
+  if (hero && aura) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Move aura
+      aura.style.left = `${x}px`;
+      aura.style.top = `${y}px`;
+
+      // Subtle parallax for background only (Text remains static)
+      const moveX = (x - rect.width / 2) / 40;
+      const moveY = (y - rect.height / 2) / 40;
+
+      if (heroBg) {
+        heroBg.style.transform = `scale(1.1) translate(${moveX * 0.5}px, ${moveY * 0.5}px)`;
+      }
+    });
+
+    // Reset position on mouse leave
+    hero.addEventListener('mouseleave', () => {
+      if (heroBg) heroBg.style.transform = `scale(1) translate(0, 0)`;
+    });
+  }
 
 
 
