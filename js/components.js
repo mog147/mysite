@@ -8,10 +8,19 @@ class SiteHeader extends HTMLElement {
       <header id="main-header">
         <div class="container header-container">
           <a href="index.html" class="logo">396 FOLIO</a>
-          <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-          </button>
+          
+          <div class="header-actions">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fa-solid fa-moon"></i>
+              <i class="fa-solid fa-sun"></i>
+            </button>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
           <nav class="main-nav">
             <ul class="nav-list">
               <li><a href="index.html">TOP</a></li>
@@ -27,6 +36,7 @@ class SiteHeader extends HTMLElement {
     `;
     this.initScrollEffect();
     this.initMobileMenu();
+    this.initThemeToggle();
   }
 
   initScrollEffect() {
@@ -54,6 +64,35 @@ class SiteHeader extends HTMLElement {
           nav.classList.remove('active');
           document.body.classList.remove('menu-open');
         });
+      });
+    }
+  }
+
+  initThemeToggle() {
+    const toggleBtn = this.querySelector('.theme-toggle');
+    const html = document.documentElement;
+
+    // Load saved theme or default to system
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        let newTheme = 'light';
+
+        if (!currentTheme) {
+          // If no manual theme is set, check system preference
+          const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          newTheme = isSystemDark ? 'light' : 'dark';
+        } else {
+          newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        }
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
       });
     }
   }
