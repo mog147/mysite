@@ -195,7 +195,9 @@ class WorkCard extends HTMLElement {
     this.innerHTML = `
       <div class="glass-card reveal flex-grid">
         <div class="gallery-thumb-wrap">
-          <img src="${img}" alt="${title}" loading="lazy">
+          <a href="${href}" target="_blank" style="display:block; width:100%; height:100%;">
+            <img src="${img}" alt="${title}" loading="lazy">
+          </a>
         </div>
         <div class="content-block">
           <h3>${title}</h3>
