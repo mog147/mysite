@@ -106,8 +106,7 @@ class SiteFooter extends HTMLElement {
           <div class="footer-content">
             <nav class="footer-sns">
               <a href="https://github.com/mog147/mysite" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.threads.net/@mogmog_atelier" target="_blank"><i class="fa-brands fa-threads"></i></a>
-              <a href="https://www.instagram.com/mogmog_atelier/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/%E6%A1%83%E5%AD%90-%E6%89%8B%E5%A1%9A-5695803ab/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
               <a href="https://note.com/mog_0147/" target="_blank"><i class="fa-regular fa-note-sticky"></i></a>
             </nav>
             <div class="footer-copy">MOMOKO TEZUKA | 396 FOLIO</div>
