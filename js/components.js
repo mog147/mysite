@@ -231,10 +231,12 @@ class InfoTable extends HTMLElement {
           ? `<a href="${item.link}" target="_blank">${item.text}</a>`
           : item.text;
 
+        const badge = item.isNew ? '<span class="badge-new">NEW</span>' : '';
+
         rowsHtml += `
           <tr>
             <th>${item.date}</th>
-            <td>${content}</td>
+            <td>${badge}${content}</td>
           </tr>
         `;
       });

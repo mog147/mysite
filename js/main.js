@@ -80,6 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const data = JSON.parse(infoTable.getAttribute('data'));
           const top3 = data.slice(0, 3);
 
+          if (top3.length > 0) {
+            top3[0].isNew = true;
+          }
+
           newsArea.innerHTML = `
             <info-table data='${JSON.stringify(top3).replace(/'/g, "&apos;")}'></info-table>
           `;
