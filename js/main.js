@@ -234,26 +234,50 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1500);
     }
 
-    // B. News Tag Integration (With Cache-Busting)
+    // B. News Tag Integration (With Script Execution Support)
     const newsContainer = document.getElementById('dynamic-news-container');
     if (newsContainer && newsTag && !newsTag.includes('お嬢様、ここに')) {
       diagLog("Processing News Tag...");
+
+      // Protocol Check: Firebase often fails on file://
+      if (window.location.protocol === 'file:') {
+        diagLog("WARNING: Running via file:// protocol. Firebase Auth may fail.", true);
+        diagLog("Tip: Use a local server (e.g., Live Server) for full functionality.");
+      }
+
       const scriptMatch = newsTag.match(/<script type="module" src="(.*?)"><\/script>/);
       if (scriptMatch && scriptMatch[1]) {
+        // ... (existing external script logic with cache-busting) ...
         const snippet = '<div id="news-container-external"></div>';
         newsContainer.innerHTML = snippet;
         const script = document.createElement('script');
         script.type = 'module';
-        // Cache busting
         script.src = scriptMatch[1] + "?v=" + new Date().getTime();
         script.onload = () => diagLog("News Script loaded successfully.");
         script.onerror = () => diagLog("ERROR: News Script failed.", true);
         document.body.appendChild(script);
       } else {
-        // Fallback for non-module style newsTag
-        newsContainer.innerHTML = newsTag;
-        diagLog("Injected News Tag as raw HTML.");
+        // Robust Inline Script Injection
+        diagLog("Injecting News Tag with Inline Script support...");
+        const range = document.createRange();
+        range.selectNode(newsContainer);
+        const fragment = range.createContextualFragment(newsTag);
+        newsContainer.innerHTML = '';
+        newsContainer.appendChild(fragment);
       }
+
+      // Integrity Watcher
+      setTimeout(() => {
+        const externalNews = document.getElementById('news-container-external');
+        if (externalNews && externalNews.children.length === 0) {
+          diagLog("--- NEWS RENDER FAILURE ---", true);
+          diagLog("Cause: Check console for 'Origin null' or Auth errors.", true);
+
+          if (window.location.protocol === 'file:') {
+            diagLog("CRITICAL: file:// protocol detected. Firebase requires a server.", true);
+          }
+        }
+      }, 7000);
     }
 
     // C. Access Counter Integration
