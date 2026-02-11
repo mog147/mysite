@@ -2,38 +2,32 @@
  * 396 FOLIO - Main Logic
  */
 
+// 1. Sophisticated Staggered Reveal Animations (Mobile Optimized)
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  root: null,
+  rootMargin: '0px 0px -50px',
+  threshold: 0.01
+});
+window.revealObserver = revealObserver; // Globally available for components
+
 document.addEventListener('DOMContentLoaded', () => {
-
-  // 1. Sophisticated Staggered Reveal Animations (Mobile Optimized)
-  const revealElements = document.querySelectorAll('.reveal');
-
-  if (!window.IntersectionObserver) {
-    revealElements.forEach(el => el.classList.add('active'));
-  } else {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      rootMargin: '0px 0px -50px', // 少しマージンを持たせて早めに発火
-      threshold: 0.01 // 1%でも入ったら発火させる（より確実に）
-    });
-
-    window.revealObserver = revealObserver; // グローバルに公開
-    revealElements.forEach(el => {
-      revealObserver.observe(el);
-      // 既に画面内にある場合は即座に表示（保険）
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add('active');
-        revealObserver.unobserve(el);
-      }
-    });
-  }
+  // Observe existing elements
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('active');
+      revealObserver.unobserve(el);
+    }
+  });
   // 2. Interactive Hero Parallax & Aura
   const hero = document.querySelector('.hero');
   const aura = document.querySelector('.hero-aura');
@@ -157,4 +151,119 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- System Diagnostics Helpers ---
+  const diagLog = (msg, isError = false) => {
+    const diagContainer = document.getElementById('diag-log');
+    if (diagContainer) {
+      const item = document.createElement('div');
+      item.className = 'diag-item' + (isError ? ' error' : '');
+      item.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+      diagContainer.prepend(item);
+    }
+    console.log(`[Diagnostic] ${msg}`);
+  };
+
+  // Toggle diagnostic with Shift+D
+  window.addEventListener('keydown', (e) => {
+    if (e.shiftKey && e.code === 'KeyD') {
+      const overlay = document.getElementById('diagnostic-overlay');
+      if (overlay) overlay.classList.toggle('active');
+    }
+  });
+
+  const initIntegrations = () => {
+    diagLog("Initializing Integrations (Robust Mode)");
+    if (!window.SITE_CONFIG) {
+      diagLog("ERROR: SITE_CONFIG not found in global scope.", true);
+      return;
+    }
+    const { twitterId, newsTag, counterTag, featuredTweet } = window.SITE_CONFIG;
+
+    // A. Twitter & Instagram Integration (Improved Resilience)
+    const twitterSection = document.getElementById('SOCIAL');
+    const twitterWrapper = document.getElementById('twitter-timeline-wrapper');
+    const fallbackCard = document.getElementById('twitter-fallback');
+    const instagramFallback = document.getElementById('instagram-fallback');
+
+    if (twitterSection) {
+      twitterSection.style.display = 'block';
+      diagLog("SOCIAL section detected.");
+
+      // 1. Fill Twitter Fallback
+      if (fallbackCard && featuredTweet) {
+        const textElem = document.getElementById('fallback-tweet-text');
+        const dateElem = document.getElementById('fallback-tweet-date');
+        if (textElem) textElem.textContent = featuredTweet.text;
+        if (dateElem) dateElem.textContent = featuredTweet.date;
+        diagLog("Twitter Native Fallback ready.");
+      }
+
+      // 2. Fill Instagram Fallback
+      if (instagramFallback) {
+        const handleElem = document.getElementById('instagram-handle-text');
+        const linkElem = document.getElementById('instagram-profile-link');
+        if (handleElem && SITE_CONFIG.instagramId) handleElem.textContent = `@${SITE_CONFIG.instagramId}`;
+        if (linkElem && SITE_CONFIG.instagramLink) linkElem.href = SITE_CONFIG.instagramLink;
+        diagLog("Instagram card ready.");
+      }
+
+      // 3. Try official Twitter widget
+      const tryTwitter = () => {
+        if (window.twttr && window.twttr.ready && twitterWrapper) {
+          diagLog("Twitter widgets.js detected. Attempting render...");
+          window.twttr.ready((t) => {
+            t.widgets.createTimeline(
+              { sourceType: 'profile', screenName: twitterId },
+              twitterWrapper,
+              { height: 600, theme: 'light', chrome: 'noheader,nofooter,noborders,transparent,noscrollbar' }
+            ).then((el) => {
+              if (el) {
+                diagLog("SUCCESS: Official Timeline rendered.");
+                if (fallbackCard) fallbackCard.style.display = 'none';
+              } else {
+                diagLog("WARNING: Timeline create returned null (429 / Blocked)", true);
+              }
+            }).catch(err => diagLog(`ERROR: Widget fail: ${err.message}`, true));
+          });
+        }
+      };
+
+      setTimeout(tryTwitter, 3500);
+      setTimeout(() => {
+        twitterSection.querySelectorAll('.reveal').forEach(r => r.classList.add('active'));
+      }, 1500);
+    }
+
+    // B. News Tag Integration (With Cache-Busting)
+    const newsContainer = document.getElementById('dynamic-news-container');
+    if (newsContainer && newsTag && !newsTag.includes('お嬢様、ここに')) {
+      diagLog("Processing News Tag...");
+      const scriptMatch = newsTag.match(/<script type="module" src="(.*?)"><\/script>/);
+      if (scriptMatch && scriptMatch[1]) {
+        const snippet = '<div id="news-container-external"></div>';
+        newsContainer.innerHTML = snippet;
+        const script = document.createElement('script');
+        script.type = 'module';
+        // Cache busting
+        script.src = scriptMatch[1] + "?v=" + new Date().getTime();
+        script.onload = () => diagLog("News Script loaded successfully.");
+        script.onerror = () => diagLog("ERROR: News Script failed.", true);
+        document.body.appendChild(script);
+      } else {
+        // Fallback for non-module style newsTag
+        newsContainer.innerHTML = newsTag;
+        diagLog("Injected News Tag as raw HTML.");
+      }
+    }
+
+    // C. Access Counter Integration
+    const counterContainer = document.getElementById('access-counter');
+    if (counterContainer && counterTag && !counterTag.includes('お嬢様、ここに')) {
+      diagLog("Injecting Counter Tag.");
+      counterContainer.innerHTML = counterTag;
+    }
+  };
+
+  // Run integrations immediately
+  initIntegrations();
 });

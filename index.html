@@ -20,8 +20,25 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/components.js" defer></script>
+    <script src="js/config.js"></script>
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
     <script src="js/main.js" defer></script>
+    <script src="js/components.js" defer></script>
 </head>
 
 <body>
@@ -88,12 +105,77 @@
             <glass-card id="top-info" reveal>
                 <p class="flex-center" style="font-style: italic;">Loading latest updates...</p>
             </glass-card>
+
+            <!-- 外部アプリからのニュース用コンテナ -->
+            <div id="dynamic-news-container"></div>
+
             <div class="flex-center" style="margin-top: 5rem;">
                 <site-button href="news.html" type="more">VIEW ALL NEWS</site-button>
             </div>
         </section>
+        <!-- Social Section (X/Twitter) -->
+        <section id="SOCIAL" class="container">
+            <section-title title="SOCIAL" reveal></section-title>
+            <div class="twitter-container reveal">
+                <glass-card center>
+                    <div id="twitter-timeline-wrapper" style="width: 100%; margin: 0 auto; min-height: 400px;">
+                        <!-- Twitter Card -->
+                        <div id="twitter-fallback" class="sns-fallback-card">
+                            <div class="fallback-header">
+                                <div class="fallback-avatar">X</div>
+                                <div class="fallback-user-info">
+                                    <span class="fallback-name">MOMOKO TEZUKA</span>
+                                    <span class="fallback-handle">@mog147_2</span>
+                                </div>
+                            </div>
+                            <div class="fallback-content" id="fallback-tweet-text">
+                                Loading latest thoughts...
+                            </div>
+                            <div class="fallback-footer">
+                                <span id="fallback-tweet-date">2026.02.11</span>
+                                <a href="https://twitter.com/mog147_2" target="_blank"
+                                    style="color:var(--color-indigo); text-decoration:none; font-weight:600;">View on X
+                                    →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card -->
+                    <div id="instagram-wrapper" style="width: 100%; margin: 0 auto; min-height: 400px;">
+                        <div id="instagram-fallback" class="sns-fallback-card">
+                            <div class="fallback-header">
+                                <div class="fallback-avatar instagram-avatar">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div class="fallback-user-info">
+                                    <span class="fallback-name">MOMOKO TEZUKA</span>
+                                    <span class="fallback-handle" id="instagram-handle-text">@mogmog_atelier</span>
+                                </div>
+                            </div>
+                            <div class="fallback-content">
+                                Check out my latest artworks, illustrations, and creative moments on Instagram.
+                            </div>
+                            <div class="fallback-footer">
+                                <span>Art Palette</span>
+                                <a href="https://www.instagram.com/mogmog_atelier/" id="instagram-profile-link"
+                                    target="_blank" style="color:#e4405f; text-decoration:none; font-weight:600;">View
+                                    on Instagram →</a>
+                            </div>
+                        </div>
+                    </div>
+                </glass-card>
+            </div>
+        </section>
     </main>
     <site-footer></site-footer>
+
+    <!-- Diagnostic Tool (Hidden by default) -->
+    <div id="diagnostic-overlay">
+        <div style="font-weight:bold; margin-bottom:0.5rem; text-decoration:underline;">System Diagnostics (Shift+D to
+            toggle)</div>
+        <div id="diag-log"></div>
+    </div>
+
 </body>
 
 </html>

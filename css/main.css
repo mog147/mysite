@@ -1092,3 +1092,144 @@ body.menu-open {
     transform: scale(1.05);
     opacity: 0.8;
 }
+
+/* Access Counter (Invisible) */
+.hidden-counter {
+    display: none !important;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* Twitter Section Styles */
+#SOCIAL {
+    display: none;
+}
+
+.twitter-container {
+    width: 100%;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Native Fallback Card Base */
+.sns-fallback-card {
+    text-align: left;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 380px;
+}
+
+.fallback-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.fallback-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--grad-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Instagram Specific Styles */
+.instagram-avatar {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.fallback-user-info span {
+    display: block;
+}
+
+.fallback-name {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.fallback-handle {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.fallback-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: auto;
+    padding-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.fallback-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .twitter-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Diagnostic Overlay */
+#diagnostic-overlay {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 9999;
+    max-width: 300px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#diagnostic-overlay.active {
+    opacity: 1;
+}
+
+.diag-item {
+    margin-bottom: 0.3rem;
+    word-break: break-all;
+}
+
+.diag-item.error {
+    color: #ff5555;
+}
+
+#twitter-timeline-wrapper {
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Ensure the iframe from Twitter respects our theme slightly better */
+iframe[id^="twitter-widget-"] {
+    border-radius: 12px !important;
+}

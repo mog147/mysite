@@ -110,10 +110,22 @@ class SiteFooter extends HTMLElement {
               <a href="https://note.com/mog_0147/" target="_blank"><i class="fa-regular fa-note-sticky"></i></a>
             </nav>
             <div class="footer-copy">MOMOKO TEZUKA | 396 FOLIO</div>
+            <!-- Access Counter Tag Area (Invisible) -->
+            <div id="access-counter" class="hidden-counter"></div>
           </div>
         </div>
       </footer>
     `;
+
+    // config tags are now handled by main.js for better timing and cross-component reliability
+  }
+
+  safeInject(container, html) {
+    const range = document.createRange();
+    range.selectNode(container);
+    const fragment = range.createContextualFragment(html);
+    container.innerHTML = '';
+    container.appendChild(fragment);
   }
 }
 
